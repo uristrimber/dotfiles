@@ -22,14 +22,21 @@ El prompt te muestra: directorio actual, status de git (commits para pushear/pul
 
 [Proyecto →](https://github.com/romkatv/powerlevel10k)
 
-### Autosuggestions y syntax highlighting
+### zsh-autosuggestions
 
-- **`zsh-autosuggestions`** — te muestra en gris una sugerencia basada en tu historial. Apretás <kbd>→</kbd> y la aceptás.
-- **`zsh-syntax-highlighting`** — te colorea verde los comandos válidos y rojo los rotos *antes* de apretar enter, así los typos cantan.
+Te muestra en gris una sugerencia basada en tu historial mientras tipeás. Apretás <kbd>→</kbd> y la aceptás.
 
 [![demo zsh-autosuggestions](https://asciinema.org/a/37390.png)](https://asciinema.org/a/37390)
 
-*Hacé click para ver el cast de asciinema.*
+*Hacé click en la imagen para ver el cast de asciinema.*
+
+### zsh-syntax-highlighting
+
+Te colorea verde los comandos válidos y rojo los rotos *antes* de apretar enter, así los typos cantan.
+
+| Sin el plugin | Con el plugin |
+|---|---|
+| ![antes](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/before1.png) | ![después](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after1.png) |
 
 ---
 

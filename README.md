@@ -22,14 +22,21 @@ The prompt shows: current directory, git status (commits to push/pull, dirty fil
 
 [Project →](https://github.com/romkatv/powerlevel10k)
 
-### Autosuggestions and syntax highlighting
+### zsh-autosuggestions
 
-- **`zsh-autosuggestions`** — greys out a guess from your history. <kbd>→</kbd> accepts it.
-- **`zsh-syntax-highlighting`** — colors valid commands green and broken ones red *before* you hit enter, so typos are obvious at a glance.
+Greys out a guess from your history as you type. <kbd>→</kbd> accepts it.
 
 [![zsh-autosuggestions demo](https://asciinema.org/a/37390.png)](https://asciinema.org/a/37390)
 
-*Click for the asciinema cast.*
+*Click the thumbnail for the asciinema cast.*
+
+### zsh-syntax-highlighting
+
+Colors valid commands green and broken ones red *before* you hit enter, so typos are obvious at a glance.
+
+| Without | With |
+|---|---|
+| ![before](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/before1.png) | ![after](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after1.png) |
 
 ---
 
