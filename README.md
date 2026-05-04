@@ -147,7 +147,13 @@ Local + remote branches with a `git log` preview of whichever is highlighted.
 | [Claude Code](https://www.anthropic.com/claude-code) | CLI AI agent for coding |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
-![Stats menu bar](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+### What Stats looks like
+
+The menu bar widgets stay live with CPU / RAM / disk / network / battery numbers and tiny graphs — pick which ones you want and how compact they should be:
+
+![Stats menu bar widgets](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+
+Click any of them and you get a detailed popup with breakdowns, history, top processes, and per-component info:
 
 ![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 

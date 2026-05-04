@@ -147,9 +147,15 @@ Branches locales y remotas, con preview del `git log` de la que tengas seleccion
 | [Claude Code](https://www.anthropic.com/claude-code) | Agente de IA para programar desde la terminal. |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
-![Stats barra de menú](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+### Cómo se ve Stats
 
-![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
+Los widgets de la barra de menú te muestran en vivo CPU / RAM / disco / red / batería con números y mini-gráficos — elegís cuáles querés ver y qué tan compactos los querés:
+
+![Widgets de Stats en la barra de menú](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+
+Si hacés click en cualquiera, te abre un popup con detalles, historial, top de procesos e info por componente:
+
+![Popups de Stats](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 
 ### `scrcpy-select` — elegir dispositivo cuando hay varios Android conectados
 
