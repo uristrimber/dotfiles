@@ -147,7 +147,9 @@ Branches locales y remotas, con preview del `git log` de la que tengas seleccion
 | [Claude Code](https://www.anthropic.com/claude-code) | Agente de IA para programar desde la terminal. |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
-![Stats](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+![Stats barra de menú](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+
+![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 
 ---
 

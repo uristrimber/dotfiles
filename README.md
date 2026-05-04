@@ -147,7 +147,9 @@ Local + remote branches with a `git log` preview of whichever is highlighted.
 | [Claude Code](https://www.anthropic.com/claude-code) | CLI AI agent for coding |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
-![Stats](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+![Stats menu bar](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+
+![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 
 ---
 
