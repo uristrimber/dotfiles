@@ -118,9 +118,6 @@ Browse your shell history and re-run any past command. Live preview shows the fu
 
 Multi-select processes with <kbd>Tab</kbd>; <kbd>Enter</kbd> sends `kill -9`. Pass a different signal as the first arg (e.g. `fkill 15`).
 
-<!-- TODO docs/fkill-widget.png — screenshot of fkill with a couple of marked processes -->
-![fkill widget](docs/fkill-widget.png)
-
 ### `fbr` — checkout a git branch
 
 Local + remote branches with a `git log` preview of whichever is highlighted.

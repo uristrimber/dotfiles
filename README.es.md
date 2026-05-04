@@ -118,9 +118,6 @@ Buscás cualquier comando que hayas tipeado y lo volvés a correr. El preview te
 
 Multi-select con <kbd>Tab</kbd>; <kbd>Enter</kbd> manda `kill -9`. Si querés mandar otra señal, la pasás como argumento (ej: `fkill 15`).
 
-<!-- TODO docs/fkill-widget.png — screenshot de fkill con un par de procesos marcados -->
-![fkill](docs/fkill-widget.png)
-
 ### `fbr` — checkout de una branch
 
 Branches locales y remotas, con preview del `git log` de la que tengas seleccionada.
