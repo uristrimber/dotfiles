@@ -92,6 +92,15 @@ if [[ -f "$DOTFILES/config/iterm2/com.googlecode.iterm2.plist" ]]; then
     "$DOTFILES/config/iterm2/com.googlecode.iterm2.plist"
 fi
 
+# 8b. Stats menu-bar app preferences (https://github.com/exelban/stats)
+if [[ -f "$DOTFILES/config/stats/Stats.plist" ]]; then
+  echo "==> Importing Stats preferences"
+  echo "    Quit Stats first if it's running, then press enter."
+  read -r
+  defaults import eu.exelban.Stats \
+    "$DOTFILES/config/stats/Stats.plist"
+fi
+
 # 9. Default shell -> zsh (homebrew version)
 BREW_ZSH="$(brew --prefix)/bin/zsh"
 if [[ -x "$BREW_ZSH" ]] && [[ "$SHELL" != "$BREW_ZSH" ]]; then

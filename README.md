@@ -20,7 +20,7 @@ The installer is idempotent — safe to re-run after pulling updates.
 4. Installs VS Code extensions listed in [vscode-extensions.txt](vscode-extensions.txt) (skipped if `code` CLI isn't on PATH).
 5. Installs [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and the [zsh-shift-select](https://github.com/jirutka/zsh-shift-select) custom plugin.
 6. Symlinks the dotfiles into `$HOME` (existing files are renamed `.backup`).
-7. Imports the iTerm2 preferences plist.
+7. Imports the iTerm2 and Stats preferences plists.
 8. Sets the default shell to Homebrew's zsh.
 
 ## Layout
@@ -42,8 +42,13 @@ The installer is idempotent — safe to re-run after pulling updates.
 │   └── path.zsh
 └── config/
     ├── git/ignore         # global gitignore
-    └── iterm2/com.googlecode.iterm2.plist
+    ├── iterm2/com.googlecode.iterm2.plist
+    └── stats/Stats.plist  # Stats menu-bar app (exelban/stats)
 ```
+
+The Stats configuration produces this menu bar layout:
+
+![Stats menu bar preview](docs/stats-menubar.png)
 
 Drop new files into `zsh/` (matching `*.zsh`) and they're sourced automatically — no `.zshrc` edits needed.
 
@@ -59,6 +64,7 @@ sed -i '' '/^vscode /d' ~/dotfiles/Brewfile
 code --list-extensions > ~/dotfiles/vscode-extensions.txt
 plutil -convert xml1 -o ~/dotfiles/config/iterm2/com.googlecode.iterm2.plist \
   ~/Library/Preferences/com.googlecode.iterm2.plist
+defaults export eu.exelban.Stats ~/dotfiles/config/stats/Stats.plist
 cd ~/dotfiles && git add -A && git commit -m "sync"
 ```
 
