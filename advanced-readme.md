@@ -50,6 +50,7 @@ Stats settings are imported through the Stats app itself — see [Importing Stat
 └── config/
     ├── git/ignore         # global gitignore
     ├── iterm2/com.googlecode.iterm2.plist
+    ├── keyboard-layouts/  # custom .keylayout + icon (U.S. + Spanish accents)
     └── stats/Stats.plist  # Stats menu-bar app (exelban/stats)
 ```
 

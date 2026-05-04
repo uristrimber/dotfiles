@@ -174,6 +174,24 @@ Código en [bin/scrcpy-select](bin/scrcpy-select). `install.sh` lo symlinkea a `
 
 ---
 
+## Layout de teclado custom
+
+Tengo un layout custom que armé con [Ukelele](https://software.sil.org/ukelele/) llamado **"U.S. but Spanish too"**. Es básicamente el QWERTY de USA, pero apretando <kbd>Option</kbd> + una vocal (o `n`) te tira la letra acentuada directo — sin tener que hacer la dance de dead-keys.
+
+| Combo | Sale | Combo | Sale |
+|---|---|---|---|
+| <kbd>⌥</kbd>+<kbd>A</kbd> | á | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>A</kbd> | Á |
+| <kbd>⌥</kbd>+<kbd>E</kbd> | é | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>E</kbd> | É |
+| <kbd>⌥</kbd>+<kbd>I</kbd> | í | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>I</kbd> | Í |
+| <kbd>⌥</kbd>+<kbd>O</kbd> | ó | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>O</kbd> | Ó |
+| <kbd>⌥</kbd>+<kbd>U</kbd> | ú | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>U</kbd> | Ú |
+| <kbd>⌥</kbd>+<kbd>N</kbd> | ñ | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>N</kbd> | Ñ |
+| <kbd>⌥</kbd>+<kbd>1</kbd> | ¡ | <kbd>⌥</kbd>+<kbd>/</kbd> | ¿ |
+
+El archivo del layout vive en [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` lo copia (junto con el ícono) a `~/Library/Keyboard Layouts/`. Para activarlo: **Ajustes del Sistema → Teclado → Entrada de texto → Fuentes de entrada → Editar → +** y elegís "U.S. but Spanish too" en "Otros".
+
+---
+
 ## Herramientas de dev en background
 
 Cosas que corren como servicios o las usan otras herramientas — casi nunca pienso en ellas.

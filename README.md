@@ -174,6 +174,24 @@ Source: [bin/scrcpy-select](bin/scrcpy-select). Symlinked into `~/bin` (which is
 
 ---
 
+## Custom keyboard layout
+
+I use a custom layout I built with [Ukelele](https://software.sil.org/ukelele/) called **"U.S. but Spanish too"**. It's a regular U.S. QWERTY layout, except that pressing <kbd>Option</kbd> + a vowel (or `n`) types the accented Spanish letter directly — no dead-key dance.
+
+| Combo | Output | Combo | Output |
+|---|---|---|---|
+| <kbd>⌥</kbd>+<kbd>A</kbd> | á | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>A</kbd> | Á |
+| <kbd>⌥</kbd>+<kbd>E</kbd> | é | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>E</kbd> | É |
+| <kbd>⌥</kbd>+<kbd>I</kbd> | í | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>I</kbd> | Í |
+| <kbd>⌥</kbd>+<kbd>O</kbd> | ó | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>O</kbd> | Ó |
+| <kbd>⌥</kbd>+<kbd>U</kbd> | ú | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>U</kbd> | Ú |
+| <kbd>⌥</kbd>+<kbd>N</kbd> | ñ | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>N</kbd> | Ñ |
+| <kbd>⌥</kbd>+<kbd>1</kbd> | ¡ | <kbd>⌥</kbd>+<kbd>/</kbd> | ¿ |
+
+The layout file lives at [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` copies it (and its icon) into `~/Library/Keyboard Layouts/`. To activate it: **System Settings → Keyboard → Text Input → Input Sources → Edit → +** and pick "U.S. but Spanish too" under "Others".
+
+---
+
 ## Dev tools running in the background
 
 These mostly run as services or get invoked by other tools — I rarely think about them.

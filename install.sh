@@ -101,6 +101,17 @@ fi
 
 # Stats preferences are imported through the app itself — see README.
 
+# 8c. Custom keyboard layouts
+KBD_DIR="$HOME/Library/Keyboard Layouts"
+if [[ -d "$DOTFILES/config/keyboard-layouts" ]]; then
+  echo "==> Installing custom keyboard layouts"
+  mkdir -p "$KBD_DIR"
+  cp -n "$DOTFILES/config/keyboard-layouts/"*.keylayout "$KBD_DIR/" 2>/dev/null || true
+  cp -n "$DOTFILES/config/keyboard-layouts/"*.icns "$KBD_DIR/" 2>/dev/null || true
+  echo "    Layouts copied. Enable them in:"
+  echo "    System Settings → Keyboard → Text Input → Input Sources → Edit → +"
+fi
+
 # 9. Default shell -> zsh (homebrew version)
 BREW_ZSH="$(brew --prefix)/bin/zsh"
 if [[ -x "$BREW_ZSH" ]] && [[ "$SHELL" != "$BREW_ZSH" ]]; then
