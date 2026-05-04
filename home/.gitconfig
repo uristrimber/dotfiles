@@ -1,0 +1,8 @@
+[user]
+	name = Uri Strimber
+	# email is set live in ~/.gitconfig after install; not committed
+	signingkey = 5A3F813D70C23DFA
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
