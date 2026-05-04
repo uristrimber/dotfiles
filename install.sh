@@ -23,9 +23,22 @@ if ! command -v brew >/dev/null 2>&1; then
   fi
 fi
 
-# 3. Brewfile (formulae, casks, taps, vscode extensions)
+# 3. Brewfile (formulae, casks, taps)
 echo "==> brew bundle"
 brew bundle --file="$DOTFILES/Brewfile"
+
+# 3b. VS Code extensions
+if command -v code >/dev/null 2>&1; then
+  echo "==> Installing VS Code extensions"
+  while IFS= read -r ext; do
+    [[ -z "$ext" || "$ext" == \#* ]] && continue
+    code --install-extension "$ext" --force
+  done < "$DOTFILES/vscode-extensions.txt"
+else
+  echo "==> Skipping VS Code extensions: 'code' CLI not on PATH."
+  echo "    Install VS Code, then run \"Shell Command: Install 'code' command in PATH\""
+  echo "    from the Command Palette, then re-run this script."
+fi
 
 # 4. Oh My Zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then

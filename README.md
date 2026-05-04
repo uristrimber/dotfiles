@@ -16,30 +16,32 @@ The installer is idempotent — safe to re-run after pulling updates.
 
 1. Installs Xcode Command Line Tools (if missing).
 2. Installs Homebrew (if missing).
-3. Runs `brew bundle` against [Brewfile](Brewfile) — formulae, casks, taps, VS Code extensions.
-4. Installs [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and the [zsh-shift-select](https://github.com/jirutka/zsh-shift-select) custom plugin.
-5. Symlinks the dotfiles into `$HOME` (existing files are renamed `.backup`).
-6. Imports the iTerm2 preferences plist.
-7. Sets the default shell to Homebrew's zsh.
+3. Runs `brew bundle` against [Brewfile](Brewfile) — formulae, casks, taps.
+4. Installs VS Code extensions listed in [vscode-extensions.txt](vscode-extensions.txt) (skipped if `code` CLI isn't on PATH).
+5. Installs [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and the [zsh-shift-select](https://github.com/jirutka/zsh-shift-select) custom plugin.
+6. Symlinks the dotfiles into `$HOME` (existing files are renamed `.backup`).
+7. Imports the iTerm2 preferences plist.
+8. Sets the default shell to Homebrew's zsh.
 
 ## Layout
 
-```
+```text
 .
-├── Brewfile              # all installed formulae/casks/taps/vscode-extensions
-├── install.sh            # bootstrap script
-├── home/                 # files that live directly in $HOME
+├── Brewfile               # formulae, casks, taps
+├── vscode-extensions.txt  # VS Code extension IDs (one per line)
+├── install.sh             # bootstrap script
+├── home/                  # files that live directly in $HOME
 │   ├── .zshrc
 │   ├── .zprofile
 │   ├── .p10k.zsh
 │   └── .gitconfig
-├── zsh/                  # auto-sourced by .zshrc → ~/.zsh
+├── zsh/                   # auto-sourced by .zshrc → ~/.zsh
 │   ├── aliases.zsh
 │   ├── env.zsh
-│   ├── functions.zsh     # fd, fh, fkill, fbr (fzf-powered)
+│   ├── functions.zsh      # fd, fh, fkill, fbr (fzf-powered)
 │   └── path.zsh
 └── config/
-    ├── git/ignore        # global gitignore
+    ├── git/ignore         # global gitignore
     └── iterm2/com.googlecode.iterm2.plist
 ```
 
@@ -53,6 +55,8 @@ After changing a config locally, sync it back into the repo and commit:
 cp ~/.zshrc ~/dotfiles/home/.zshrc
 cp ~/.zsh/*.zsh ~/dotfiles/zsh/
 brew bundle dump --file=~/dotfiles/Brewfile --force --describe
+sed -i '' '/^vscode /d' ~/dotfiles/Brewfile
+code --list-extensions > ~/dotfiles/vscode-extensions.txt
 plutil -convert xml1 -o ~/dotfiles/config/iterm2/com.googlecode.iterm2.plist \
   ~/Library/Preferences/com.googlecode.iterm2.plist
 cd ~/dotfiles && git add -A && git commit -m "sync"
