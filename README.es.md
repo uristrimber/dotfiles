@@ -181,13 +181,10 @@ Cosas que corren como servicios o las usan otras herramientas — casi nunca pie
 
 | Herramienta | Para qué |
 |---|---|
-| [`postgresql@14`](https://www.postgresql.org/) | Postgres local |
-| [`redis`](https://redis.io/) | Cache / colas locales |
 | [`nginx`](https://nginx.org/) | Reverse proxy local para dominios HTTPS de dev |
 | [`nvm`](https://github.com/nvm-sh/nvm) | Múltiples versiones de Node al mismo tiempo |
 | [`gnupg`](https://gnupg.org/) + [`pinentry-mac`](https://github.com/GPGTools/pinentry) | Firmar commits y tags con GPG |
 | [`mkcert`](https://github.com/FiloSottile/mkcert) | Certificados TLS locales sin warnings en el browser |
-| [`nss`](https://wiki.mozilla.org/NSS) | Lo necesita mkcert para el cert store de Firefox |
 | [`gh`](https://cli.github.com/) | GitHub desde la consola |
 | [`fzf`](https://github.com/junegunn/fzf) | El fuzzy finder donde están armadas mis funciones |
 | [`thefuck`](https://github.com/nvbn/thefuck) | Te corrige el último comando mal escrito |

@@ -13,16 +13,10 @@ brew "gnupg"
 brew "mkcert"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx", restart_service: :changed
-# Libraries for security-enabled client and server applications
-brew "nss"
 # Manage multiple Node.js versions
 brew "nvm"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
-# Object-relational database system
-brew "postgresql@14", restart_service: :changed
-# Persistent key-value database, with built-in net interface
-brew "redis", restart_service: :changed
 # Display and control your Android device
 brew "scrcpy"
 # Programmatically correct mistyped console commands

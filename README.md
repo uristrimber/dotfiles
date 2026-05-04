@@ -181,13 +181,10 @@ These mostly run as services or get invoked by other tools — I rarely think ab
 
 | Tool | What it gives me |
 |---|---|
-| [`postgresql@14`](https://www.postgresql.org/) | Local Postgres database |
-| [`redis`](https://redis.io/) | Local cache / message queue |
 | [`nginx`](https://nginx.org/) | Local reverse proxy for HTTPS dev domains |
 | [`nvm`](https://github.com/nvm-sh/nvm) | Multiple Node.js versions side-by-side |
 | [`gnupg`](https://gnupg.org/) + [`pinentry-mac`](https://github.com/GPGTools/pinentry) | Sign git commits & tags with GPG |
 | [`mkcert`](https://github.com/FiloSottile/mkcert) | Trusted local TLS certificates with no browser warnings |
-| [`nss`](https://wiki.mozilla.org/NSS) | Required by mkcert for Firefox's certificate store |
 | [`gh`](https://cli.github.com/) | GitHub from the command line |
 | [`fzf`](https://github.com/junegunn/fzf) | The fuzzy finder my custom widgets are built on |
 | [`thefuck`](https://github.com/nvbn/thefuck) | Auto-fix the previous mistyped command |
