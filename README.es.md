@@ -151,6 +151,22 @@ Branches locales y remotas, con preview del `git log` de la que tengas seleccion
 
 ![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 
+### `scrcpy-select` — elegir dispositivo cuando hay varios Android conectados
+
+`scrcpy` solo no anda si tenés más de un Android conectado (por ejemplo un celu por USB y un emulador corriendo, o dos celus, o USB + ADB por WiFi). Este wrapper te lista todos los dispositivos que devuelve `adb devices -l` con su modelo, le elegís uno por número, y te tira scrcpy sobre ese.
+
+```sh
+$ scrcpy-select
+Select a device:
+0: Pixel_8 [4A0PR2A...]
+1: SM-G991U [R5CN...]
+Enter number: 1
+
+Launching scrcpy for SM-G991U [R5CN...]
+```
+
+Código en [bin/scrcpy-select](bin/scrcpy-select). `install.sh` lo symlinkea a `~/bin` (que ya está en el PATH).
+
 ---
 
 ## Herramientas de dev en background

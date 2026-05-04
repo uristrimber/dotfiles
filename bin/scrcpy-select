@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# scrcpy-select.sh — pick an ADB device and launch scrcpy on macOS
+
+# Get ADB device list (only lines ending in "device", skipping the header)
+serials=()
+models=()
+while IFS= read -r line; do
+    serial=$(echo "$line" | awk '{print $1}')
+    model=$(echo "$line" | grep -oE 'model:[^ ]+' | sed 's/model://')
+    [ -z "$model" ] && model="Unknown"
+    serials+=("$serial")
+    models+=("$model")
+done < <(adb devices -l | grep -E '^[^ ].*[[:space:]]device([[:space:]]|$)')
+
+if [ ${#serials[@]} -eq 0 ]; then
+    echo "No devices found."
+    exit 1
+fi
+
+# Display device options
+echo "Select a device:"
+for i in "${!serials[@]}"; do
+    echo "$i: ${models[$i]} [${serials[$i]}]"
+done
+
+# Prompt user for selection
+read -rp "Enter number: " selection
+
+if [[ "$selection" =~ ^[0-9]+$ ]] && [ "$selection" -lt "${#serials[@]}" ]; then
+    chosen_serial="${serials[$selection]}"
+    chosen_model="${models[$selection]}"
+    echo
+    echo "Launching scrcpy for $chosen_model [$chosen_serial]"
+    echo
+    scrcpy -s "$chosen_serial"
+else
+    echo "Invalid selection."
+    exit 1
+fi

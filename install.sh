@@ -83,6 +83,13 @@ link "$DOTFILES/home/.gitconfig" "$HOME/.gitconfig"
 link "$DOTFILES/zsh"             "$HOME/.zsh"
 link "$DOTFILES/config/git/ignore" "$HOME/.config/git/ignore"
 
+# 7b. Custom CLI scripts in ~/bin (already on PATH via zsh/path.zsh)
+mkdir -p "$HOME/bin"
+for script in "$DOTFILES"/bin/*; do
+  [[ -e "$script" ]] || continue
+  link "$script" "$HOME/bin/$(basename "$script")"
+done
+
 # 8. iTerm2 preferences
 if [[ -f "$DOTFILES/config/iterm2/com.googlecode.iterm2.plist" ]]; then
   echo "==> Importing iTerm2 preferences"

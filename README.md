@@ -151,6 +151,22 @@ Local + remote branches with a `git log` preview of whichever is highlighted.
 
 ![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 
+### `scrcpy-select` — pick a device when several Androids are connected
+
+Plain `scrcpy` errors out if more than one Android device is connected (e.g. a phone over USB plus an emulator, or two phones, or USB + ADB-over-Wi-Fi). This little wrapper lists every device returned by `adb devices -l` with its model name, lets you pick one by number, and launches scrcpy on it.
+
+```sh
+$ scrcpy-select
+Select a device:
+0: Pixel_8 [4A0PR2A...]
+1: SM-G991U [R5CN...]
+Enter number: 1
+
+Launching scrcpy for SM-G991U [R5CN...]
+```
+
+Source: [bin/scrcpy-select](bin/scrcpy-select). Symlinked into `~/bin` (which is on your PATH) by `install.sh`.
+
 ---
 
 ## Dev tools running in the background

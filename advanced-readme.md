@@ -22,8 +22,9 @@ The installer is idempotent — safe to re-run after pulling updates.
 4. Installs VS Code extensions listed in [vscode-extensions.txt](vscode-extensions.txt) (skipped if `code` CLI isn't on PATH).
 5. Installs [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and the [zsh-shift-select](https://github.com/jirutka/zsh-shift-select) custom plugin.
 6. Symlinks the dotfiles into `$HOME` (existing files are renamed `.backup`).
-7. Imports the iTerm2 preferences plist.
-8. Sets the default shell to Homebrew's zsh.
+7. Symlinks every script in [bin/](bin/) into `~/bin` so they're picked up by `$PATH`.
+8. Imports the iTerm2 preferences plist.
+9. Sets the default shell to Homebrew's zsh.
 
 Stats settings are imported through the Stats app itself — see [Importing Stats settings](#importing-stats-settings) below.
 
@@ -34,6 +35,8 @@ Stats settings are imported through the Stats app itself — see [Importing Stat
 ├── Brewfile               # formulae, casks, taps
 ├── vscode-extensions.txt  # VS Code extension IDs (one per line)
 ├── install.sh             # bootstrap script
+├── bin/                   # custom CLI scripts symlinked into ~/bin
+│   └── scrcpy-select      # pick an Android device, then run scrcpy
 ├── home/                  # files that live directly in $HOME
 │   ├── .zshrc
 │   ├── .zprofile
@@ -73,6 +76,7 @@ After changing a config locally, sync it back into the repo and commit:
 ```bash
 cp ~/.zshrc ~/dotfiles/home/.zshrc
 cp ~/.zsh/*.zsh ~/dotfiles/zsh/
+cp ~/bin/* ~/dotfiles/bin/    # custom scripts
 brew bundle dump --file=~/dotfiles/Brewfile --force --describe
 sed -i '' '/^vscode /d' ~/dotfiles/Brewfile
 code --list-extensions > ~/dotfiles/vscode-extensions.txt
