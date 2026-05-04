@@ -33,8 +33,6 @@ brew "zsh-syntax-highlighting"
 cask "android-platform-tools"
 # Web browser focusing on privacy
 cask "brave-browser"
-# Terminal-based AI coding assistant
-cask "claude-code"
 # Unofficial Google Nearby Share app
 cask "grishka/grishka/neardrop"
 # Control your tools with a few keystrokes

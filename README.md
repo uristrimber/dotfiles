@@ -144,7 +144,6 @@ Local + remote branches with a `git log` preview of whichever is highlighted.
 | [Stats](https://github.com/exelban/stats) | CPU / RAM / disk / network / battery in the menu bar |
 | [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share for macOS — send & receive files from Android |
 | [scrcpy](https://github.com/Genymobile/scrcpy) | Mirror & control an Android device from your Mac, over USB or Wi-Fi |
-| [Claude Code](https://www.anthropic.com/claude-code) | CLI AI agent for coding |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
 ### What Stats looks like
@@ -200,7 +199,7 @@ These mostly run as services or get invoked by other tools — I rarely think ab
 - **PHP/Laravel**: Intelephense, Blade Formatter, Laravel Goto-* helpers
 - **Flutter/Dart**: Dart, Flutter, bloc, awesome-flutter-snippets
 - **Python**: Pylance, Ruff, Jupyter
-- **AI**: Claude Code, GitHub Copilot Chat, Codeium, ChatGPT
+- **AI**: GitHub Copilot Chat, Codeium, ChatGPT
 - **DX**: Docker, EditorConfig, Material Icon Theme, Code Spell Checker
 
 ---

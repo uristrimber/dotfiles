@@ -1,7 +1,6 @@
 adpyke.codesnap
 agurodriguez.vscode-lbnf
 amiralizadeh9480.laravel-extra-intellisense
-anthropic.claude-code
 anweber.vscode-httpyac
 aykutsarac.jsoncrack-vscode
 bmewburn.vscode-intelephense-client
