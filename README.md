@@ -20,8 +20,10 @@ The installer is idempotent — safe to re-run after pulling updates.
 4. Installs VS Code extensions listed in [vscode-extensions.txt](vscode-extensions.txt) (skipped if `code` CLI isn't on PATH).
 5. Installs [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and the [zsh-shift-select](https://github.com/jirutka/zsh-shift-select) custom plugin.
 6. Symlinks the dotfiles into `$HOME` (existing files are renamed `.backup`).
-7. Imports the iTerm2 and Stats preferences plists.
+7. Imports the iTerm2 preferences plist.
 8. Sets the default shell to Homebrew's zsh.
+
+Stats settings are imported through the Stats app itself — see [Importing Stats settings](#importing-stats-settings) below.
 
 ## Layout
 
@@ -51,6 +53,16 @@ The Stats configuration produces this menu bar layout:
 ![Stats menu bar preview](docs/stats-menubar.png)
 
 Drop new files into `zsh/` (matching `*.zsh`) and they're sourced automatically — no `.zshrc` edits needed.
+
+## Importing Stats settings
+
+`defaults import` doesn't reliably take effect for Stats because of macOS's preference cache, so import the settings through the app instead:
+
+1. Make sure Stats is installed (`brew bundle` handles this) and launched at least once — its menu-bar icon (toggle/sliders, far right) should be visible.
+2. Click the Stats icon in the menu bar to open the popup, then click the **gear** icon in the popup's bottom-right to open **Settings**.
+3. In the sidebar, scroll to the bottom and select **Settings** (or **Application**, depending on the version).
+4. Click **Import** and pick `~/dotfiles/config/stats/Stats.plist`.
+5. Confirm the prompt — Stats will reload with the imported configuration.
 
 ## Updating from the source machine
 
