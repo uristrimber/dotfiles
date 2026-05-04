@@ -16,8 +16,9 @@ I replaced bash with **zsh** — faster, smarter completion, recursive path expa
 
 The prompt shows: current directory, git status (commits to push/pull, dirty files, stashes), how long the last command took, and a few system stats. Loads instantly thanks to its async rendering — you can start typing before the shell finishes booting.
 
-<!-- TODO docs/p10k-prompt.png — screenshot of your actual prompt in a dirty git tree, ideally showing the duration + status icons -->
-![Powerlevel10k prompt](docs/p10k-prompt.png)
+![Powerlevel10k prompt styles](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
+
+*Lean, Classic, and Rainbow styles, all configurable via `p10k configure`.*
 
 [Project →](https://github.com/romkatv/powerlevel10k)
 
@@ -26,8 +27,9 @@ The prompt shows: current directory, git status (commits to push/pull, dirty fil
 - **`zsh-autosuggestions`** — greys out a guess from your history. <kbd>→</kbd> accepts it.
 - **`zsh-syntax-highlighting`** — colors valid commands green and broken ones red *before* you hit enter, so typos are obvious at a glance.
 
-<!-- TODO docs/zsh-autosuggestions.png — screenshot showing a typed `git ch` with a greyed-out `eckout main` after it -->
-![zsh-autosuggestions](docs/zsh-autosuggestions.png)
+[![zsh-autosuggestions demo](https://asciinema.org/a/37390.png)](https://asciinema.org/a/37390)
+
+*Click for the asciinema cast.*
 
 ---
 
@@ -45,19 +47,19 @@ The basics — `ls`, `cat`, `cd` — replaced with modern equivalents.
 
 A drop-in `ls` replacement with icons, colors, and git status integration.
 
-<!-- TODO docs/eza.png — screenshot of `lla` (eza --git -l) on a folder with a mix of files & directories -->
-![eza](docs/eza.png)
+![eza](https://raw.githubusercontent.com/eza-community/eza/main/docs/images/screenshots.png)
 
 ### bat
 
 `cat` with syntax highlighting and automatic paging for long files.
 
-<!-- TODO docs/bat.png — screenshot of `cat` (which is now bat) showing a .ts or .py file with highlighting -->
-![bat](docs/bat.png)
+![bat](https://imgur.com/rGsdnDe.png)
 
 ### zoxide
 
 `z <fragment>` jumps to the most-frequently-used directory matching the fragment. After a few weeks you stop typing `cd`.
+
+![zoxide demo](https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/tutorial.webp)
 
 ```sh
 z dotfiles      # → ~/dotfiles
@@ -69,12 +71,7 @@ z foo bar       # multi-fragment match
 
 Mistyped a command? Type `fuck` and it suggests a fix.
 
-```sh
-$ git brnch
-git: 'brnch' is not a git command. See 'git --help'.
-$ fuck
-git branch [enter/↑/↓/ctrl+c]
-```
+![thefuck demo](https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif)
 
 [Project →](https://github.com/nvbn/thefuck)
 

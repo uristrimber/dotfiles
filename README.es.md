@@ -16,8 +16,9 @@ Cambié bash por **zsh** — más rápido, autocompletado más copado, expansió
 
 El prompt te muestra: directorio actual, status de git (commits para pushear/pullear, archivos sin commitear, stashes), cuánto tardó el último comando, y algunas estadísticas del sistema. Carga al toque gracias al *instant prompt* — podés empezar a escribir comandos antes de que termine de bootear la consola.
 
-<!-- TODO docs/p10k-prompt.png — screenshot de tu prompt en un repo con cambios sin commitear, idealmente que se vea el tiempo del último comando y los íconos de status -->
-![Prompt p10k](docs/p10k-prompt.png)
+![Estilos del prompt p10k](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
+
+*Estilos Lean, Classic y Rainbow — todos configurables corriendo `p10k configure`.*
 
 [Proyecto →](https://github.com/romkatv/powerlevel10k)
 
@@ -26,8 +27,9 @@ El prompt te muestra: directorio actual, status de git (commits para pushear/pul
 - **`zsh-autosuggestions`** — te muestra en gris una sugerencia basada en tu historial. Apretás <kbd>→</kbd> y la aceptás.
 - **`zsh-syntax-highlighting`** — te colorea verde los comandos válidos y rojo los rotos *antes* de apretar enter, así los typos cantan.
 
-<!-- TODO docs/zsh-autosuggestions.png — screenshot mostrando que escribiste `git ch` y aparece `eckout main` en gris al lado -->
-![autosuggestions](docs/zsh-autosuggestions.png)
+[![demo zsh-autosuggestions](https://asciinema.org/a/37390.png)](https://asciinema.org/a/37390)
+
+*Hacé click para ver el cast de asciinema.*
 
 ---
 
@@ -45,19 +47,19 @@ Los básicos — `ls`, `cat`, `cd` — todos reemplazados por versiones modernas
 
 Reemplazo directo de `ls` — íconos, colores, y el estado de los archivos en git, todo en una.
 
-<!-- TODO docs/eza.png — screenshot de `lla` (eza --git -l) en una carpeta con archivos y subdirectorios mezclados -->
-![eza](docs/eza.png)
+![eza](https://raw.githubusercontent.com/eza-community/eza/main/docs/images/screenshots.png)
 
 ### bat
 
 `cat` con syntax highlighting, números de línea y paginado automático cuando el archivo es largo.
 
-<!-- TODO docs/bat.png — screenshot de `cat` (que ahora es bat) sobre un .ts o .py con coloreado -->
-![bat](docs/bat.png)
+![bat](https://imgur.com/rGsdnDe.png)
 
 ### zoxide
 
 `z <pedacito>` te lleva al directorio más usado que matchee el pedazo. Después de unas semanas, dejás de escribir `cd`.
+
+![demo zoxide](https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/tutorial.webp)
 
 ```sh
 z dotfiles      # → ~/dotfiles
@@ -69,12 +71,7 @@ z foo bar       # match con varios términos
 
 ¿Te equivocaste tipeando un comando? Escribís `fuck` y te tira la corrección.
 
-```sh
-$ git brnch
-git: 'brnch' is not a git command. See 'git --help'.
-$ fuck
-git branch [enter/↑/↓/ctrl+c]
-```
+![demo thefuck](https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif)
 
 [Proyecto →](https://github.com/nvbn/thefuck)
 
