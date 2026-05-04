@@ -1,89 +1,196 @@
-# dotfiles
+# Uri's macOS setup
 
-Personal macOS setup: zsh + Oh My Zsh + Powerlevel10k, Homebrew, iTerm2, and a Brewfile that captures every formula, cask, and VS Code extension currently installed.
+> 🇪🇸 [Leer en español](README.es.md)
 
-## Bootstrap a fresh Mac
+A friendly tour of the tools, shell tweaks, and apps I rely on every day on macOS. This is a showcase, not a tutorial — but if you actually want to clone and install the same setup, [`./install.sh`](install.sh) handles it in one shot. See [advanced-readme.md](advanced-readme.md) for the technical details.
 
-```bash
-git clone https://github.com/uristrimber/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./install.sh
+> If you're a friend who's curious what I use: keep reading. If you want to actually replicate the setup, jump to [advanced-readme.md](advanced-readme.md).
+
+---
+
+## The shell
+
+I replaced bash with **zsh** — faster, smarter completion, recursive path expansion (`/u/lo/b` → `/usr/local/bin`), better history, and infinitely more customizable. On top of that, [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) gives me a sane way to manage plugins and themes.
+
+### Powerlevel10k prompt
+
+The prompt shows: current directory, git status (commits to push/pull, dirty files, stashes), how long the last command took, and a few system stats. Loads instantly thanks to its async rendering — you can start typing before the shell finishes booting.
+
+<!-- TODO docs/p10k-prompt.png — screenshot of your actual prompt in a dirty git tree, ideally showing the duration + status icons -->
+![Powerlevel10k prompt](docs/p10k-prompt.png)
+
+[Project →](https://github.com/romkatv/powerlevel10k)
+
+### Autosuggestions and syntax highlighting
+
+- **`zsh-autosuggestions`** — greys out a guess from your history. <kbd>→</kbd> accepts it.
+- **`zsh-syntax-highlighting`** — colors valid commands green and broken ones red *before* you hit enter, so typos are obvious at a glance.
+
+<!-- TODO docs/zsh-autosuggestions.png — screenshot showing a typed `git ch` with a greyed-out `eckout main` after it -->
+![zsh-autosuggestions](docs/zsh-autosuggestions.png)
+
+---
+
+## Better defaults for everyday commands
+
+The basics — `ls`, `cat`, `cd` — replaced with modern equivalents.
+
+| What I type | What actually runs | Why |
+|---|---|---|
+| `ls` | [`eza`](https://github.com/eza-community/eza) | Colors, icons, git status all baked in |
+| `cat` | [`bat`](https://github.com/sharkdp/bat) | Syntax highlighting + line numbers + paging |
+| `z <name>` | [`zoxide`](https://github.com/ajeetdsouza/zoxide) | Smart `cd` that learns your habits |
+
+### eza
+
+A drop-in `ls` replacement with icons, colors, and git status integration.
+
+<!-- TODO docs/eza.png — screenshot of `lla` (eza --git -l) on a folder with a mix of files & directories -->
+![eza](docs/eza.png)
+
+### bat
+
+`cat` with syntax highlighting and automatic paging for long files.
+
+<!-- TODO docs/bat.png — screenshot of `cat` (which is now bat) showing a .ts or .py file with highlighting -->
+![bat](docs/bat.png)
+
+### zoxide
+
+`z <fragment>` jumps to the most-frequently-used directory matching the fragment. After a few weeks you stop typing `cd`.
+
+```sh
+z dotfiles      # → ~/dotfiles
+z stat          # → ~/some/path/with/stats/
+z foo bar       # multi-fragment match
 ```
 
-The installer is idempotent — safe to re-run after pulling updates.
+### thefuck
 
-## What it does
+Mistyped a command? Type `fuck` and it suggests a fix.
 
-1. Installs Xcode Command Line Tools (if missing).
-2. Installs Homebrew (if missing).
-3. Runs `brew bundle` against [Brewfile](Brewfile) — formulae, casks, taps.
-4. Installs VS Code extensions listed in [vscode-extensions.txt](vscode-extensions.txt) (skipped if `code` CLI isn't on PATH).
-5. Installs [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and the [zsh-shift-select](https://github.com/jirutka/zsh-shift-select) custom plugin.
-6. Symlinks the dotfiles into `$HOME` (existing files are renamed `.backup`).
-7. Imports the iTerm2 preferences plist.
-8. Sets the default shell to Homebrew's zsh.
-
-Stats settings are imported through the Stats app itself — see [Importing Stats settings](#importing-stats-settings) below.
-
-## Layout
-
-```text
-.
-├── Brewfile               # formulae, casks, taps
-├── vscode-extensions.txt  # VS Code extension IDs (one per line)
-├── install.sh             # bootstrap script
-├── home/                  # files that live directly in $HOME
-│   ├── .zshrc
-│   ├── .zprofile
-│   ├── .p10k.zsh
-│   └── .gitconfig
-├── zsh/                   # auto-sourced by .zshrc → ~/.zsh
-│   ├── aliases.zsh
-│   ├── env.zsh
-│   ├── functions.zsh      # fd, fh, fkill, fbr (fzf-powered)
-│   └── path.zsh
-└── config/
-    ├── git/ignore         # global gitignore
-    ├── iterm2/com.googlecode.iterm2.plist
-    └── stats/Stats.plist  # Stats menu-bar app (exelban/stats)
+```sh
+$ git brnch
+git: 'brnch' is not a git command. See 'git --help'.
+$ fuck
+git branch [enter/↑/↓/ctrl+c]
 ```
 
-The Stats configuration produces this menu bar layout:
+[Project →](https://github.com/nvbn/thefuck)
 
-![Stats menu bar preview](docs/stats-menubar.png)
+---
 
-Drop new files into `zsh/` (matching `*.zsh`) and they're sourced automatically — no `.zshrc` edits needed.
+## Aliases
 
-## Importing Stats settings
+Defined in [zsh/aliases.zsh](zsh/aliases.zsh). All built on top of `eza`.
 
-`defaults import` doesn't reliably take effect for Stats because of macOS's preference cache, so import the settings through the app instead:
+| Alias | Expands to | Use case |
+|---|---|---|
+| `ls` | `eza --icons --group-directories-first` | The new ls |
+| `la` / `lla` | `ls -la` | Long listing, all files |
+| `ld` | `ls -D` | Directories only |
+| `lt` | `ls --tree` | Tree view |
+| `lgs` | `ls --git` | With git status icons |
+| `ltgs` | `ls --git --tree=3` | Tree view + git status, 3 levels deep |
+| `lsgs` | `ls --git -l` | Long listing with git status |
+| `cat` | `bat` | Syntax-highlighted cat |
 
-1. Make sure Stats is installed (`brew bundle` handles this) and launched at least once — its menu-bar icon (toggle/sliders, far right) should be visible.
-2. Click the Stats icon in the menu bar to open the popup, then click the **gear** icon in the popup's bottom-right to open **Settings**.
-3. In the sidebar, scroll to the bottom and select **Settings** (or **Application**, depending on the version).
-4. Click **Import** and pick `~/dotfiles/config/stats/Stats.plist`.
-5. Confirm the prompt — Stats will reload with the imported configuration.
+Oh My Zsh ships hundreds of additional aliases via its `git` plugin — `gst`, `gco`, `gcam`, `gp`, etc. Run `alias` in the shell to see the full list.
 
-## Updating from the source machine
+---
 
-After changing a config locally, sync it back into the repo and commit:
+## Custom fzf widgets
 
-```bash
-cp ~/.zshrc ~/dotfiles/home/.zshrc
-cp ~/.zsh/*.zsh ~/dotfiles/zsh/
-brew bundle dump --file=~/dotfiles/Brewfile --force --describe
-sed -i '' '/^vscode /d' ~/dotfiles/Brewfile
-code --list-extensions > ~/dotfiles/vscode-extensions.txt
-plutil -convert xml1 -o ~/dotfiles/config/iterm2/com.googlecode.iterm2.plist \
-  ~/Library/Preferences/com.googlecode.iterm2.plist
-defaults export eu.exelban.Stats ~/dotfiles/config/stats/Stats.plist
-cd ~/dotfiles && git add -A && git commit -m "sync"
-```
+Four interactive pickers I built on top of [`fzf`](https://github.com/junegunn/fzf), all sharing the same full-bordered preview style. Source in [zsh/functions.zsh](zsh/functions.zsh).
 
-## NOT included (and why)
+### `fd` — jump to a directory
 
-- `~/.ssh/` — private keys. Generate fresh on each machine.
-- `~/.gnupg/` — private GPG signing key. Export via `gpg --export-secret-keys` and move it manually through a secure channel.
-- `~/.zsh_history` — may contain pasted secrets in the future, never worth versioning.
-- `~/.iterm2_shell_integration.zsh` — vendor file, regenerated on first iTerm2 run.
-- `~/.oh-my-zsh/` — installer takes care of it; only your custom additions are tracked.
+Fuzzy-search every subdirectory of the current path and `cd` into the chosen one. Live tree preview on the right.
+
+<!-- TODO docs/fd-widget.png — screenshot of `fd` running with the dir list on the left and the eza tree preview on the right -->
+![fd widget](docs/fd-widget.png)
+
+### `fh` — re-run a command from history
+
+Browse your shell history and re-run any past command. Live preview shows the full command with syntax highlighting.
+
+<!-- TODO docs/fh-widget.png — screenshot of `fh` mid-search, with one command highlighted and previewed -->
+![fh widget](docs/fh-widget.png)
+
+### `fkill` — pick a process to kill
+
+Multi-select processes with <kbd>Tab</kbd>; <kbd>Enter</kbd> sends `kill -9`. Pass a different signal as the first arg (e.g. `fkill 15`).
+
+<!-- TODO docs/fkill-widget.png — screenshot of fkill with a couple of marked processes -->
+![fkill widget](docs/fkill-widget.png)
+
+### `fbr` — checkout a git branch
+
+Local + remote branches with a `git log` preview of whichever is highlighted.
+
+<!-- TODO docs/fbr-widget.png — screenshot of fbr in a real repo with the log preview showing recent commits -->
+![fbr widget](docs/fbr-widget.png)
+
+---
+
+## Apps I install (Homebrew casks)
+
+| App | What it is |
+|---|---|
+| [Brave](https://brave.com/) | Privacy-respecting browser, my daily driver |
+| [iTerm2](https://iterm2.com/) | Terminal replacement: split panes, in-line search, profiles, hotkey window |
+| [Raycast](https://www.raycast.com/) | Spotlight on steroids — clipboard history, calculator, snippets, custom scripts |
+| [Stats](https://github.com/exelban/stats) | CPU / RAM / disk / network / battery in the menu bar |
+| [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share for macOS — send & receive files from Android |
+| [scrcpy](https://github.com/Genymobile/scrcpy) | Mirror & control an Android device from your Mac, over USB or Wi-Fi |
+| [Claude Code](https://www.anthropic.com/claude-code) | CLI AI agent for coding |
+| [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
+
+The Stats configuration produces this menu bar:
+
+![Stats menu bar](docs/stats-menubar.png)
+
+---
+
+## Dev tools running in the background
+
+These mostly run as services or get invoked by other tools — I rarely think about them.
+
+| Tool | What it gives me |
+|---|---|
+| [`postgresql@14`](https://www.postgresql.org/) | Local Postgres database |
+| [`redis`](https://redis.io/) | Local cache / message queue |
+| [`nginx`](https://nginx.org/) | Local reverse proxy for HTTPS dev domains |
+| [`nvm`](https://github.com/nvm-sh/nvm) | Multiple Node.js versions side-by-side |
+| [`gnupg`](https://gnupg.org/) + [`pinentry-mac`](https://github.com/GPGTools/pinentry) | Sign git commits & tags with GPG |
+| [`mkcert`](https://github.com/FiloSottile/mkcert) | Trusted local TLS certificates with no browser warnings |
+| [`nss`](https://wiki.mozilla.org/NSS) | Required by mkcert for Firefox's certificate store |
+| [`gh`](https://cli.github.com/) | GitHub from the command line |
+| [`fzf`](https://github.com/junegunn/fzf) | The fuzzy finder my custom widgets are built on |
+| [`thefuck`](https://github.com/nvbn/thefuck) | Auto-fix the previous mistyped command |
+| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
+
+---
+
+## VS Code
+
+`./install.sh` also installs ~100 VS Code extensions on a fresh machine, listed in [vscode-extensions.txt](vscode-extensions.txt). The major stacks:
+
+- **Web/JS**: ESLint, Prettier, TailwindCSS, GitLens, Pretty TS Errors
+- **PHP/Laravel**: Intelephense, Blade Formatter, Laravel Goto-* helpers
+- **Flutter/Dart**: Dart, Flutter, bloc, awesome-flutter-snippets
+- **Python**: Pylance, Ruff, Jupyter
+- **AI**: Claude Code, GitHub Copilot Chat, Codeium, ChatGPT
+- **DX**: Docker, EditorConfig, Material Icon Theme, Code Spell Checker
+
+---
+
+## A note on fonts
+
+Most of the icon-rendering above (in eza, the p10k prompt, etc.) requires a [Nerd Font](https://www.nerdfonts.com/font-downloads) to display correctly. I use **MesloLGS Nerd Font**; **Hack Nerd Font** also works well. Set it in iTerm2 → Profiles → Text → Font.
+
+---
+
+## Going deeper
+
+Everything above is documented technically — installation, file structure, what's intentionally not committed (SSH keys, GPG private keys, `.zsh_history`), how to sync changes from your live config back into the repo — in [advanced-readme.md](advanced-readme.md).

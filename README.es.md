@@ -1,0 +1,196 @@
+# Mi setup de Mac
+
+> 🇬🇧 [Read in English](README.md)
+
+Una guía amistosa de cómo tengo armada la Mac — qué herramientas uso, qué hace cada una, y por qué me sirven. La idea es más mostrar que tutoriar, pero si te quedás con ganas, [`./install.sh`](install.sh) te deja una Mac vacía igualita a la mía con un solo comando. Ver [advanced-readme.md](advanced-readme.md) para el detalle técnico.
+
+> Si caíste acá porque te mostré algo y te llamó la atención: seguí leyendo. Si querés clonar y darle, andá directo a [advanced-readme.md](advanced-readme.md).
+
+---
+
+## La consola
+
+Cambié bash por **zsh** — más rápido, autocompletado más copado, expansión recursiva del path (`/u/lo/b` se expande a `/usr/local/bin`), historial mejorado y miles de cosas más para customizar. Arriba de eso le metí [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) que es un framework para manejar plugins y temas sin volverse loco.
+
+### El prompt: Powerlevel10k
+
+El prompt te muestra: directorio actual, status de git (commits para pushear/pullear, archivos sin commitear, stashes), cuánto tardó el último comando, y algunas estadísticas del sistema. Carga al toque gracias al *instant prompt* — podés empezar a escribir comandos antes de que termine de bootear la consola.
+
+<!-- TODO docs/p10k-prompt.png — screenshot de tu prompt en un repo con cambios sin commitear, idealmente que se vea el tiempo del último comando y los íconos de status -->
+![Prompt p10k](docs/p10k-prompt.png)
+
+[Proyecto →](https://github.com/romkatv/powerlevel10k)
+
+### Autosuggestions y syntax highlighting
+
+- **`zsh-autosuggestions`** — te muestra en gris una sugerencia basada en tu historial. Apretás <kbd>→</kbd> y la aceptás.
+- **`zsh-syntax-highlighting`** — te colorea verde los comandos válidos y rojo los rotos *antes* de apretar enter, así los typos cantan.
+
+<!-- TODO docs/zsh-autosuggestions.png — screenshot mostrando que escribiste `git ch` y aparece `eckout main` en gris al lado -->
+![autosuggestions](docs/zsh-autosuggestions.png)
+
+---
+
+## Reemplazos para los comandos de siempre
+
+Los básicos — `ls`, `cat`, `cd` — todos reemplazados por versiones modernas.
+
+| Lo que escribo | Lo que corre realmente | Por qué |
+|---|---|---|
+| `ls` | [`eza`](https://github.com/eza-community/eza) | Colores, íconos, status de git, todo incluido |
+| `cat` | [`bat`](https://github.com/sharkdp/bat) | Syntax highlighting + números de línea + paginado |
+| `z <nombre>` | [`zoxide`](https://github.com/ajeetdsouza/zoxide) | `cd` que aprende qué carpetas usás más |
+
+### eza
+
+Reemplazo directo de `ls` — íconos, colores, y el estado de los archivos en git, todo en una.
+
+<!-- TODO docs/eza.png — screenshot de `lla` (eza --git -l) en una carpeta con archivos y subdirectorios mezclados -->
+![eza](docs/eza.png)
+
+### bat
+
+`cat` con syntax highlighting, números de línea y paginado automático cuando el archivo es largo.
+
+<!-- TODO docs/bat.png — screenshot de `cat` (que ahora es bat) sobre un .ts o .py con coloreado -->
+![bat](docs/bat.png)
+
+### zoxide
+
+`z <pedacito>` te lleva al directorio más usado que matchee el pedazo. Después de unas semanas, dejás de escribir `cd`.
+
+```sh
+z dotfiles      # → ~/dotfiles
+z stat          # → ~/algun/path/con/stats/
+z foo bar       # match con varios términos
+```
+
+### thefuck
+
+¿Te equivocaste tipeando un comando? Escribís `fuck` y te tira la corrección.
+
+```sh
+$ git brnch
+git: 'brnch' is not a git command. See 'git --help'.
+$ fuck
+git branch [enter/↑/↓/ctrl+c]
+```
+
+[Proyecto →](https://github.com/nvbn/thefuck)
+
+---
+
+## Mis aliases
+
+Definidos en [zsh/aliases.zsh](zsh/aliases.zsh). Todos arriba de `eza`.
+
+| Alias | Equivale a | Para qué |
+|---|---|---|
+| `ls` | `eza --icons --group-directories-first` | El nuevo ls |
+| `la` / `lla` | `ls -la` | Listado largo, con archivos ocultos |
+| `ld` | `ls -D` | Solo directorios |
+| `lt` | `ls --tree` | Vista de árbol |
+| `lgs` | `ls --git` | Con íconos del status de git |
+| `ltgs` | `ls --git --tree=3` | Árbol + git, hasta 3 niveles |
+| `lsgs` | `ls --git -l` | Listado largo + git |
+| `cat` | `bat` | cat con highlighting |
+
+Oh My Zsh trae también un montón de aliases extra mediante el plugin `git` — `gst`, `gco`, `gcam`, `gp`, etc. Corré `alias` en la consola para ver la lista completa.
+
+---
+
+## Mis funciones fzf
+
+Cuatro pickers interactivos que me armé arriba de [`fzf`](https://github.com/junegunn/fzf), todos con el mismo estilo de border y preview. Código en [zsh/functions.zsh](zsh/functions.zsh).
+
+### `fd` — saltar a un directorio
+
+Hacés fuzzy search por cualquier subdirectorio del path actual y te tira el `cd` automágico. Preview en árbol del lado derecho.
+
+<!-- TODO docs/fd-widget.png — screenshot de `fd` corriendo con la lista de directorios a la izquierda y el preview de eza tree a la derecha -->
+![fd](docs/fd-widget.png)
+
+### `fh` — re-correr un comando del historial
+
+Buscás cualquier comando que hayas tipeado y lo volvés a correr. El preview te muestra el comando completo con highlighting.
+
+<!-- TODO docs/fh-widget.png — screenshot de `fh` con varios comandos del historial y uno seleccionado en el preview -->
+![fh](docs/fh-widget.png)
+
+### `fkill` — matar un proceso
+
+Multi-select con <kbd>Tab</kbd>; <kbd>Enter</kbd> manda `kill -9`. Si querés mandar otra señal, la pasás como argumento (ej: `fkill 15`).
+
+<!-- TODO docs/fkill-widget.png — screenshot de fkill con un par de procesos marcados -->
+![fkill](docs/fkill-widget.png)
+
+### `fbr` — checkout de una branch
+
+Branches locales y remotas, con preview del `git log` de la que tengas seleccionada.
+
+<!-- TODO docs/fbr-widget.png — screenshot de fbr corriendo en un repo real con el log de preview -->
+![fbr](docs/fbr-widget.png)
+
+---
+
+## Apps que tengo instaladas (Homebrew casks)
+
+| App | Qué es |
+|---|---|
+| [Brave](https://brave.com/) | Browser que respeta la privacidad. El que uso día a día. |
+| [iTerm2](https://iterm2.com/) | Reemplazo de Terminal: paneles divididos, search interno, profiles, hotkey window. |
+| [Raycast](https://www.raycast.com/) | Spotlight pero potenciado — clipboard history, calculadora, snippets, scripts custom. |
+| [Stats](https://github.com/exelban/stats) | CPU / RAM / disco / red / batería en la barra de menú. |
+| [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share para macOS — mandar y recibir archivos desde Android. |
+| [scrcpy](https://github.com/Genymobile/scrcpy) | Espejar y controlar un Android desde la Mac (USB o WiFi). |
+| [Claude Code](https://www.anthropic.com/claude-code) | Agente de IA para programar desde la terminal. |
+| [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
+
+La barra de menú con Stats:
+
+![Stats](docs/stats-menubar.png)
+
+---
+
+## Herramientas de dev en background
+
+Cosas que corren como servicios o las usan otras herramientas — casi nunca pienso en ellas.
+
+| Herramienta | Para qué |
+|---|---|
+| [`postgresql@14`](https://www.postgresql.org/) | Postgres local |
+| [`redis`](https://redis.io/) | Cache / colas locales |
+| [`nginx`](https://nginx.org/) | Reverse proxy local para dominios HTTPS de dev |
+| [`nvm`](https://github.com/nvm-sh/nvm) | Múltiples versiones de Node al mismo tiempo |
+| [`gnupg`](https://gnupg.org/) + [`pinentry-mac`](https://github.com/GPGTools/pinentry) | Firmar commits y tags con GPG |
+| [`mkcert`](https://github.com/FiloSottile/mkcert) | Certificados TLS locales sin warnings en el browser |
+| [`nss`](https://wiki.mozilla.org/NSS) | Lo necesita mkcert para el cert store de Firefox |
+| [`gh`](https://cli.github.com/) | GitHub desde la consola |
+| [`fzf`](https://github.com/junegunn/fzf) | El fuzzy finder donde están armadas mis funciones |
+| [`thefuck`](https://github.com/nvbn/thefuck) | Te corrige el último comando mal escrito |
+| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | `cd` con memoria |
+
+---
+
+## VS Code
+
+`./install.sh` también instala ~100 extensiones de VS Code en una Mac fresca, listadas en [vscode-extensions.txt](vscode-extensions.txt). Los stacks principales:
+
+- **Web/JS**: ESLint, Prettier, TailwindCSS, GitLens, Pretty TS Errors
+- **PHP/Laravel**: Intelephense, Blade Formatter, Laravel Goto-* helpers
+- **Flutter/Dart**: Dart, Flutter, bloc, awesome-flutter-snippets
+- **Python**: Pylance, Ruff, Jupyter
+- **IA**: Claude Code, GitHub Copilot Chat, Codeium, ChatGPT
+- **DX**: Docker, EditorConfig, Material Icon Theme, Code Spell Checker
+
+---
+
+## Notita sobre fuentes
+
+Para que se vean bien los íconos de eza, del prompt p10k, etc., necesitás una [Nerd Font](https://www.nerdfonts.com/font-downloads). Yo uso **MesloLGS Nerd Font**; **Hack Nerd Font** también queda piola. Lo configurás en iTerm2 → Profiles → Text → Font.
+
+---
+
+## Para los más limados
+
+Si querés clonar y darle, está todo el detalle técnico en [advanced-readme.md](advanced-readme.md): cómo funciona `install.sh`, qué *no* está commiteado (claves SSH, GPG, etc.), y cómo sincronizar cambios desde tu setup en vivo de vuelta al repo.
