@@ -148,6 +148,12 @@ Branches locales y remotas, con preview del `git log` de la que tengas seleccion
 | [scrcpy](https://github.com/Genymobile/scrcpy) | Espejar y controlar un Android desde la Mac (USB o WiFi). |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
+### Cómo se ve KeyClu
+
+Mantenés la hotkey en cualquier app y te aparece un overlay translúcido con todos los atajos agrupados por menú — buscable y con scroll:
+
+![Overlay de KeyClu](https://sergii.tatarenkov.name/images/keyclu/keyclu.png)
+
 ### Cómo se ve Stats
 
 Los widgets de la barra de menú te muestran en vivo CPU / RAM / disco / red / batería con números y mini-gráficos — elegís cuáles querés ver y qué tan compactos los querés:
