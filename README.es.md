@@ -142,6 +142,7 @@ Branches locales y remotas, con preview del `git log` de la que tengas seleccion
 | [iTerm2](https://iterm2.com/) | Reemplazo de Terminal: paneles divididos, search interno, profiles, hotkey window. |
 | [Raycast](https://www.raycast.com/) | Spotlight pero potenciado — clipboard history, calculadora, snippets, scripts custom. |
 | [Stats](https://github.com/exelban/stats) | CPU / RAM / disco / red / batería en la barra de menú. |
+| [Rectangle](https://rectangleapp.com/) | Tiling de ventanas con atajos de teclado (mitades, cuartos, pantalla completa, etc.). Alternativa con gestos de trackpad: [Swish](https://highlyopinionated.co/swish/) (pago). |
 | [Mos](https://mos.caldis.me/) | Suaviza el scroll de la rueda del mouse y te deja tener dirección de scroll independiente para mouse y trackpad. |
 | [KeyClu](https://sergii.tatarenkov.name/keyclu/support/) | Te muestra los atajos de teclado de la app activa cuando mantenés una hotkey — buenísimo para aprender shortcuts. |
 | [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share para macOS — mandar y recibir archivos desde Android. |

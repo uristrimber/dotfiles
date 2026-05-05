@@ -41,5 +41,7 @@ cask "keyclu"
 cask "mos"
 # Control your tools with a few keystrokes
 cask "raycast"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
 # System monitor for the menu bar
 cask "stats"
