@@ -261,3 +261,9 @@ Tools people have suggested to me — listed here so I (and you) don't forget:
 ## Going deeper
 
 Everything above is documented technically — installation, file structure, what's intentionally not committed (SSH keys, GPG private keys, `.zsh_history`), how to sync changes from your live config back into the repo — in [advanced-readme.md](advanced-readme.md).
+
+---
+
+## Got recommendations or feedback?
+
+If there's a tool you swear by that's missing from this list, or a section that's confusing, I'd love to hear it. Open an [issue on GitHub](https://github.com/uristrimber/dotfiles/issues) or reach out wherever you usually find me.

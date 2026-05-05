@@ -261,3 +261,9 @@ Herramientas que me chiflaron pero que aún no testeé — las dejo acá para qu
 ## Para los más limados
 
 Si querés clonar y darle, está todo el detalle técnico en [advanced-readme.md](advanced-readme.md): cómo funciona `install.sh`, qué *no* está commiteado (claves SSH, GPG, etc.), y cómo sincronizar cambios desde tu setup en vivo de vuelta al repo.
+
+---
+
+## ¿Tenés recomendaciones o comentarios?
+
+Si hay alguna herramienta que usás todo el tiempo y me falta acá, o alguna parte que no se entiende, me copa que me digas. Abrí un [issue en GitHub](https://github.com/uristrimber/dotfiles/issues) o escribime por donde habitualmente nos hablamos.
