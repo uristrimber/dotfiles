@@ -35,6 +35,10 @@ cask "android-platform-tools"
 cask "brave-browser"
 # Unofficial Google Nearby Share app
 cask "grishka/grishka/neardrop"
+# Find shortcuts for any installed application
+cask "keyclu"
+# Smooth scrolling and per-device scroll direction
+cask "mos"
 # Control your tools with a few keystrokes
 cask "raycast"
 # System monitor for the menu bar

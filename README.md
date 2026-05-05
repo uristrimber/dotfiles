@@ -142,6 +142,8 @@ Local + remote branches with a `git log` preview of whichever is highlighted.
 | [iTerm2](https://iterm2.com/) | Terminal replacement: split panes, in-line search, profiles, hotkey window |
 | [Raycast](https://www.raycast.com/) | Spotlight on steroids — clipboard history, calculator, snippets, custom scripts |
 | [Stats](https://github.com/exelban/stats) | CPU / RAM / disk / network / battery in the menu bar |
+| [Mos](https://mos.caldis.me/) | Smooth mouse-wheel scrolling, with independent scroll direction for mouse and trackpad |
+| [KeyClu](https://sergii.tatarenkov.name/keyclu/support/) | Pops up the current app's keyboard shortcuts when you hold a hotkey — great for learning shortcuts |
 | [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share for macOS — send & receive files from Android |
 | [scrcpy](https://github.com/Genymobile/scrcpy) | Mirror & control an Android device from your Mac, over USB or Wi-Fi |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
