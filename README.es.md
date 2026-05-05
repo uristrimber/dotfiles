@@ -241,6 +241,17 @@ Para que se vean bien los íconos de eza, del prompt p10k, etc., necesitás una 
 
 ---
 
+## Recomendados que todavía no probé
+
+Herramientas que me chiflaron pero que aún no testeé — las dejo acá para que ni yo ni vos las olvidemos:
+
+- **[FineTune](https://github.com/ronitsingh10/FineTune)** — control de volumen por app independiente, boost hasta 4× para apps que suenan bajito, ruteo a varias salidas, EQ y corrección para auriculares. Free y open source, vive en la barra de menú. Posible reemplazo para lo que `Stats > volumen` y el mezclador del sistema no llegan a hacer.
+- **[AltTab](https://alt-tab-macos.netlify.app/)** — alt-tab estilo Windows para macOS, con thumbnails de cada ventana de todos los spaces. Free.
+- **[BetterDisplay](https://github.com/waydabber/BetterDisplay)** (la versión Pro es paga) — para domar monitores externos: resoluciones arbitrarias, HiDPI en monitores no-Retina, override de brillo/contraste/gamma por display. Hace buen combo con **[MonitorControl](https://github.com/MonitorControl/MonitorControl)** (free, brillo y volumen en la barra de menú para displays externos).
+- **[Alfred](https://www.alfredapp.com/)** — el Spotlight replacement original, la alternativa a Raycast. El core es gratis; el Powerpack (workflows, clipboard history, snippets) es pago.
+
+---
+
 ## Para los más limados
 
 Si querés clonar y darle, está todo el detalle técnico en [advanced-readme.md](advanced-readme.md): cómo funciona `install.sh`, qué *no* está commiteado (claves SSH, GPG, etc.), y cómo sincronizar cambios desde tu setup en vivo de vuelta al repo.

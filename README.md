@@ -241,6 +241,17 @@ Most of the icon-rendering above (in eza, the p10k prompt, etc.) requires a [Ner
 
 ---
 
+## Recommended but I haven't tried them yet
+
+Tools people have suggested to me — listed here so I (and you) don't forget:
+
+- **[FineTune](https://github.com/ronitsingh10/FineTune)** — per-app volume control, up to 4× boost on quiet apps, multi-output routing, EQ, headphone correction. Free, open source, lives in the menu bar. Possible replacement for what `Stats > volume` and the system mixer can't do.
+- **[AltTab](https://alt-tab-macos.netlify.app/)** — Windows-style alt-tab for macOS, with thumbnails of every window across spaces. Free.
+- **[BetterDisplay](https://github.com/waydabber/BetterDisplay)** (Pro version is paid) — tame external displays: arbitrary resolutions, HiDPI on non-Retina monitors, brightness/contrast/gamma overrides per display. Pairs well with **[MonitorControl](https://github.com/MonitorControl/MonitorControl)** (free, brightness & volume in the menu bar for external displays).
+- **[Alfred](https://www.alfredapp.com/)** — the OG Spotlight replacement, the alternative to Raycast. Free core; the Powerpack (workflows, clipboard history, snippets) is paid.
+
+---
+
 ## Going deeper
 
 Everything above is documented technically — installation, file structure, what's intentionally not committed (SSH keys, GPG private keys, `.zsh_history`), how to sync changes from your live config back into the repo — in [advanced-readme.md](advanced-readme.md).
