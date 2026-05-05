@@ -176,7 +176,7 @@ Código en [bin/scrcpy-select](bin/scrcpy-select). `install.sh` lo symlinkea a `
 
 ## Layout de teclado custom
 
-Tengo un layout custom que armé con [Ukelele](https://software.sil.org/ukelele/) llamado **"U.S. but Spanish too"**. Es básicamente el QWERTY de USA, pero apretando <kbd>Option</kbd> + una vocal (o `n`) te tira la letra acentuada directo — sin tener que hacer la dance de dead-keys.
+Tengo un layout custom llamado **"U.S. but Spanish too"**. Es básicamente el QWERTY de USA, pero apretando <kbd>Option</kbd> + una vocal (o `n`) te tira la letra acentuada directo — sin tener que hacer la dance de dead-keys.
 
 | Combo | Sale | Combo | Sale |
 |---|---|---|---|
@@ -188,7 +188,11 @@ Tengo un layout custom que armé con [Ukelele](https://software.sil.org/ukelele/
 | <kbd>⌥</kbd>+<kbd>N</kbd> | ñ | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>N</kbd> | Ñ |
 | <kbd>⌥</kbd>+<kbd>1</kbd> | ¡ | <kbd>⌥</kbd>+<kbd>/</kbd> | ¿ |
 
-El archivo del layout vive en [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` lo copia (junto con el ícono) a `~/Library/Keyboard Layouts/`. Para activarlo: **Ajustes del Sistema → Teclado → Entrada de texto → Fuentes de entrada → Editar → +** y elegís "U.S. but Spanish too" en "Otros".
+Los archivos están en [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` los copia automáticamente; si lo querés instalar a mano sin correr el installer:
+
+1. Copiá `U.S. but Spanish too.keylayout` (y opcionalmente el `.icns` con el ícono) a `~/Library/Keyboard Layouts/`. Si la carpeta no existe, la creás.
+2. Abrí **Ajustes del Sistema → Teclado → Entrada de texto → Fuentes de entrada → Editar → +**, andá hasta **Otros** y elegí "U.S. but Spanish too".
+3. Cambiás al layout desde el menú de fuentes de entrada en la barra de menú (o con <kbd>Ctrl</kbd>+<kbd>Espacio</kbd>).
 
 ---
 

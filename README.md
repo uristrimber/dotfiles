@@ -176,7 +176,7 @@ Source: [bin/scrcpy-select](bin/scrcpy-select). Symlinked into `~/bin` (which is
 
 ## Custom keyboard layout
 
-I use a custom layout I built with [Ukelele](https://software.sil.org/ukelele/) called **"U.S. but Spanish too"**. It's a regular U.S. QWERTY layout, except that pressing <kbd>Option</kbd> + a vowel (or `n`) types the accented Spanish letter directly — no dead-key dance.
+I use a custom layout called **"U.S. but Spanish too"**. It's a regular U.S. QWERTY layout, except that pressing <kbd>Option</kbd> + a vowel (or `n`) types the accented Spanish letter directly — no dead-key dance.
 
 | Combo | Output | Combo | Output |
 |---|---|---|---|
@@ -188,7 +188,11 @@ I use a custom layout I built with [Ukelele](https://software.sil.org/ukelele/) 
 | <kbd>⌥</kbd>+<kbd>N</kbd> | ñ | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>N</kbd> | Ñ |
 | <kbd>⌥</kbd>+<kbd>1</kbd> | ¡ | <kbd>⌥</kbd>+<kbd>/</kbd> | ¿ |
 
-The layout file lives at [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` copies it (and its icon) into `~/Library/Keyboard Layouts/`. To activate it: **System Settings → Keyboard → Text Input → Input Sources → Edit → +** and pick "U.S. but Spanish too" under "Others".
+The files live at [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` copies them automatically; if you want just the layout without running the installer:
+
+1. Copy `U.S. but Spanish too.keylayout` (and the matching `.icns` icon, optional) into `~/Library/Keyboard Layouts/`. Create the folder if it doesn't exist.
+2. Open **System Settings → Keyboard → Text Input → Input Sources → Edit → +**, scroll to **Others**, and pick "U.S. but Spanish too".
+3. Switch to it from the input-source menu in the menu bar (or with <kbd>Ctrl</kbd>+<kbd>Space</kbd>).
 
 ---
 
