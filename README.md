@@ -241,6 +241,12 @@ Most of the icon-rendering above (in eza, the p10k prompt, etc.) requires a [Ner
 
 ---
 
+## Can't decide which app to use?
+
+Don't know which calendar app to pick, which browser, which AI app, which backup tool, which clipboard-history app, which mail client? I'll leave you [this mega spreadsheet](https://docs.google.com/spreadsheets/d/1HtJN4oQ6oBDFmFaF4Qeq5vCGEU1g-KB1DEz5Sp_OwXo/edit?usp=sharing) that compares a bunch of macOS tools side by side, with pros and cons.
+
+---
+
 ## Recommended but I haven't tried them yet
 
 Tools people have suggested to me — listed here so I (and you) don't forget:

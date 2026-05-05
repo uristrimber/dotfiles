@@ -241,6 +241,12 @@ Para que se vean bien los íconos de eza, del prompt p10k, etc., necesitás una 
 
 ---
 
+## ¿No sabés qué app usar?
+
+¿No sabés qué app de calendario usar, qué navegador, qué app de IA, qué app de backup, qué app de clipboard history o cliente de mail? Te dejo [esta mega spreadsheet](https://docs.google.com/spreadsheets/d/1HtJN4oQ6oBDFmFaF4Qeq5vCGEU1g-KB1DEz5Sp_OwXo/edit?usp=sharing) que compara bastantes herramientas para macOS, con ventajas y desventajas.
+
+---
+
 ## Recomendados que todavía no probé
 
 Herramientas que me chiflaron pero que aún no testeé — las dejo acá para que ni yo ni vos las olvidemos:
