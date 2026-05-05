@@ -152,7 +152,7 @@ Branches locales y remotas, con preview del `git log` de la que tengas seleccion
 
 Mantenés la hotkey en cualquier app y te aparece un overlay translúcido con todos los atajos agrupados por menú — buscable y con scroll:
 
-![Overlay de KeyClu](https://sergii.tatarenkov.name/images/keyclu/keyclu.png)
+![Overlay de KeyClu](https://raw.githubusercontent.com/Anze/KeyCluCask/main/img/screenshot_2.png)
 
 ### Cómo se ve Stats
 

@@ -152,7 +152,7 @@ Local + remote branches with a `git log` preview of whichever is highlighted.
 
 Hold the hotkey in any app and you get a translucent overlay grouping every shortcut by menu — searchable and scrollable:
 
-![KeyClu overlay](https://sergii.tatarenkov.name/images/keyclu/keyclu.png)
+![KeyClu overlay](https://raw.githubusercontent.com/Anze/KeyCluCask/main/img/screenshot_2.png)
 
 ### What Stats looks like
 
