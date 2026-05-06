@@ -40,6 +40,12 @@ Te colorea verde los comandos válidos y rojo los rotos *antes* de apretar enter
 |---|---|
 | ![antes](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/before1.png) | ![después](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after1.png) |
 
+### zsh-shift-select
+
+Te deja seleccionar texto en la línea de comandos con <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd>/<kbd>Home</kbd>/<kbd>End</kbd>, como en cualquier editor de texto. Después podés copiar, cortar o pisar la selección con lo que tipees, igual que esperás. Salva mucho cuando estás armando un comando largo y querés mover/borrar pedazos sin tener que aprender los chords de zsh.
+
+[Proyecto →](https://github.com/jirutka/zsh-shift-select)
+
 ---
 
 ## Reemplazos para los comandos de siempre

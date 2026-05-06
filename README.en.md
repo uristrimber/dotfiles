@@ -40,6 +40,12 @@ Colors valid commands green and broken ones red *before* you hit enter, so typos
 |---|---|
 | ![before](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/before1.png) | ![after](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after1.png) |
 
+### zsh-shift-select
+
+Lets you select text on the command line with <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd>/<kbd>Home</kbd>/<kbd>End</kbd>, like in any normal text editor. You can then copy, cut, or overwrite the selection by typing — just like you'd expect. Big quality-of-life win when you're building up a long command and want to move/delete chunks without learning zsh's native chords.
+
+[Project →](https://github.com/jirutka/zsh-shift-select)
+
 ---
 
 ## Better defaults for everyday commands
