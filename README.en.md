@@ -51,6 +51,8 @@ Lets you select text on the command line with <kbd>Shift</kbd>+<kbd>←</kbd>/<k
 - **`aliases`** — run `acs` to list every alias you have loaded, grouped by category. Handy for discovering what's available.
 - **`cp`** — adds `cpv`, an `rsync`-backed copy that shows progress.
 
+Want more? The [awesome-zsh-plugins](https://github.com/unixorn/awesome-zsh-plugins) list is the canonical reference, with hundreds of curated plugins.
+
 ---
 
 ## Better defaults for everyday commands
