@@ -80,6 +80,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   zsh-shift-select
+  aliases
+  cp
 )
 
 source $ZSH/oh-my-zsh.sh

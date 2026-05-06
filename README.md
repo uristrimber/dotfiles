@@ -46,6 +46,11 @@ Te deja seleccionar texto en la línea de comandos con <kbd>Shift</kbd>+<kbd>←
 
 [Proyecto →](https://github.com/jirutka/zsh-shift-select)
 
+### Otros plugins de Oh My Zsh
+
+- **`aliases`** — corré `acs` y te lista todos los aliases agrupados por categoría. Útil para descubrir qué tenés cargado.
+- **`cp`** — agrega `cpv`, una versión de `cp` que usa `rsync` y te muestra progreso al copiar.
+
 ---
 
 ## Reemplazos para los comandos de siempre

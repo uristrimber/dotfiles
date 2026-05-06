@@ -46,6 +46,11 @@ Lets you select text on the command line with <kbd>Shift</kbd>+<kbd>←</kbd>/<k
 
 [Project →](https://github.com/jirutka/zsh-shift-select)
 
+### Other Oh My Zsh plugins
+
+- **`aliases`** — run `acs` to list every alias you have loaded, grouped by category. Handy for discovering what's available.
+- **`cp`** — adds `cpv`, an `rsync`-backed copy that shows progress.
+
 ---
 
 ## Better defaults for everyday commands
