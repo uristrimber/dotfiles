@@ -1,173 +1,173 @@
-# Uri's macOS setup
+# Mi setup de Mac
 
-> 🇪🇸 [Leer en español](README.es.md)
+> 🇬🇧 [Read in English](README.en.md)
 
-A friendly tour of the tools, shell tweaks, and apps I rely on every day on macOS. This is a showcase, not a tutorial — but if you actually want to clone and install the same setup, [`./install.sh`](install.sh) handles it in one shot. See [advanced-readme.md](advanced-readme.md) for the technical details.
+Una guía amistosa de cómo tengo armada la Mac — qué herramientas uso, qué hace cada una, y por qué me sirven. La idea es más mostrar que tutoriar, pero si te quedás con ganas, [`./install.sh`](install.sh) te deja una Mac vacía igualita a la mía con un solo comando. Ver [advanced-readme.md](advanced-readme.md) para el detalle técnico.
 
-> If you're a friend who's curious what I use: keep reading. If you want to actually replicate the setup, jump to [advanced-readme.md](advanced-readme.md).
+> Si caíste acá porque te mostré algo y te llamó la atención: seguí leyendo. Si querés clonar y darle, andá directo a [advanced-readme.md](advanced-readme.md).
 
 ---
 
-## The shell
+## La consola
 
-I replaced bash with **zsh** — faster, smarter completion, recursive path expansion (`/u/lo/b` → `/usr/local/bin`), better history, and infinitely more customizable. On top of that, [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) gives me a sane way to manage plugins and themes.
+Cambié bash por **zsh** — más rápido, autocompletado más copado, expansión recursiva del path (`/u/lo/b` se expande a `/usr/local/bin`), historial mejorado y miles de cosas más para customizar. Arriba de eso le metí [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) que es un framework para manejar plugins y temas sin volverse loco.
 
-### Powerlevel10k prompt
+### El prompt: Powerlevel10k
 
-The prompt shows: current directory, git status (commits to push/pull, dirty files, stashes), how long the last command took, and a few system stats. Loads instantly thanks to its async rendering — you can start typing before the shell finishes booting.
+El prompt te muestra: directorio actual, status de git (commits para pushear/pullear, archivos sin commitear, stashes), cuánto tardó el último comando, y algunas estadísticas del sistema. Carga al toque gracias al *instant prompt* — podés empezar a escribir comandos antes de que termine de bootear la consola.
 
-![Powerlevel10k prompt styles](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
+![Estilos del prompt p10k](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
 
-*Lean, Classic, and Rainbow styles, all configurable via `p10k configure`.*
+*Estilos Lean, Classic y Rainbow — todos configurables corriendo `p10k configure`.*
 
-[Project →](https://github.com/romkatv/powerlevel10k)
+[Proyecto →](https://github.com/romkatv/powerlevel10k)
 
 ### zsh-autosuggestions
 
-Greys out a guess from your history as you type. <kbd>→</kbd> accepts it.
+Te muestra en gris una sugerencia basada en tu historial mientras tipeás. Apretás <kbd>→</kbd> y la aceptás.
 
-[![zsh-autosuggestions demo](https://asciinema.org/a/37390.png)](https://asciinema.org/a/37390)
+[![demo zsh-autosuggestions](https://asciinema.org/a/37390.png)](https://asciinema.org/a/37390)
 
-*Click the thumbnail for the asciinema cast.*
+*Hacé click en la imagen para ver el cast de asciinema.*
 
 ### zsh-syntax-highlighting
 
-Colors valid commands green and broken ones red *before* you hit enter, so typos are obvious at a glance.
+Te colorea verde los comandos válidos y rojo los rotos *antes* de apretar enter, así los typos cantan.
 
-| Without | With |
+| Sin el plugin | Con el plugin |
 |---|---|
-| ![before](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/before1.png) | ![after](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after1.png) |
+| ![antes](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/before1.png) | ![después](https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/images/after1.png) |
 
 ---
 
-## Better defaults for everyday commands
+## Reemplazos para los comandos de siempre
 
-The basics — `ls`, `cat`, `cd` — replaced with modern equivalents.
+Los básicos — `ls`, `cat`, `cd` — todos reemplazados por versiones modernas.
 
-| What I type | What actually runs | Why |
+| Lo que escribo | Lo que corre realmente | Por qué |
 |---|---|---|
-| `ls` | [`eza`](https://github.com/eza-community/eza) | Colors, icons, git status all baked in |
-| `cat` | [`bat`](https://github.com/sharkdp/bat) | Syntax highlighting + line numbers + paging |
-| `z <name>` | [`zoxide`](https://github.com/ajeetdsouza/zoxide) | Smart `cd` that learns your habits |
+| `ls` | [`eza`](https://github.com/eza-community/eza) | Colores, íconos, status de git, todo incluido |
+| `cat` | [`bat`](https://github.com/sharkdp/bat) | Syntax highlighting + números de línea + paginado |
+| `z <nombre>` | [`zoxide`](https://github.com/ajeetdsouza/zoxide) | `cd` que aprende qué carpetas usás más |
 
 ### eza
 
-A drop-in `ls` replacement with icons, colors, and git status integration.
+Reemplazo directo de `ls` — íconos, colores, y el estado de los archivos en git, todo en una.
 
 ![eza](https://raw.githubusercontent.com/eza-community/eza/main/docs/images/screenshots.png)
 
 ### bat
 
-`cat` with syntax highlighting and automatic paging for long files.
+`cat` con syntax highlighting, números de línea y paginado automático cuando el archivo es largo.
 
 ![bat](https://imgur.com/rGsdnDe.png)
 
 ### zoxide
 
-`z <fragment>` jumps to the most-frequently-used directory matching the fragment. After a few weeks you stop typing `cd`.
+`z <pedacito>` te lleva al directorio más usado que matchee el pedazo. Después de unas semanas, dejás de escribir `cd`.
 
-![zoxide demo](https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/tutorial.webp)
+![demo zoxide](https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/tutorial.webp)
 
 ```sh
 z dotfiles      # → ~/dotfiles
-z stat          # → ~/some/path/with/stats/
-z foo bar       # multi-fragment match
+z stat          # → ~/algun/path/con/stats/
+z foo bar       # match con varios términos
 ```
 
 ### thefuck
 
-Mistyped a command? Type `fuck` and it suggests a fix.
+¿Te equivocaste tipeando un comando? Escribís `fuck` y te tira la corrección.
 
-![thefuck demo](https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif)
+![demo thefuck](https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif)
 
-[Project →](https://github.com/nvbn/thefuck)
+[Proyecto →](https://github.com/nvbn/thefuck)
 
 ---
 
-## Aliases
+## Mis aliases
 
-Defined in [zsh/aliases.zsh](zsh/aliases.zsh). All built on top of `eza`.
+Definidos en [zsh/aliases.zsh](zsh/aliases.zsh). Todos arriba de `eza`.
 
-| Alias | Expands to | Use case |
+| Alias | Equivale a | Para qué |
 |---|---|---|
-| `ls` | `eza --icons --group-directories-first` | The new ls |
-| `la` / `lla` | `ls -la` | Long listing, all files |
-| `ld` | `ls -D` | Directories only |
-| `lt` | `ls --tree` | Tree view |
-| `lgs` | `ls --git` | With git status icons |
-| `ltgs` | `ls --git --tree=3` | Tree view + git status, 3 levels deep |
-| `lsgs` | `ls --git -l` | Long listing with git status |
-| `cat` | `bat` | Syntax-highlighted cat |
+| `ls` | `eza --icons --group-directories-first` | El nuevo ls |
+| `la` / `lla` | `ls -la` | Listado largo, con archivos ocultos |
+| `ld` | `ls -D` | Solo directorios |
+| `lt` | `ls --tree` | Vista de árbol |
+| `lgs` | `ls --git` | Con íconos del status de git |
+| `ltgs` | `ls --git --tree=3` | Árbol + git, hasta 3 niveles |
+| `lsgs` | `ls --git -l` | Listado largo + git |
+| `cat` | `bat` | cat con highlighting |
 
-Oh My Zsh ships hundreds of additional aliases via its `git` plugin — `gst`, `gco`, `gcam`, `gp`, etc. Run `alias` in the shell to see the full list.
-
----
-
-## Custom fzf widgets
-
-Four interactive pickers I built on top of [`fzf`](https://github.com/junegunn/fzf), all sharing the same full-bordered preview style. Source in [zsh/functions.zsh](zsh/functions.zsh).
-
-### `fd` — jump to a directory
-
-Fuzzy-search every subdirectory of the current path and `cd` into the chosen one. Live tree preview on the right.
-
-<!-- TODO docs/fd-widget.png — screenshot of `fd` running with the dir list on the left and the eza tree preview on the right -->
-![fd widget](docs/fd-widget.png)
-
-### `fh` — re-run a command from history
-
-Browse your shell history and re-run any past command. Live preview shows the full command with syntax highlighting.
-
-<!-- TODO docs/fh-widget.png — screenshot of `fh` mid-search, with one command highlighted and previewed -->
-![fh widget](docs/fh-widget.png)
-
-### `fkill` — pick a process to kill
-
-Multi-select processes with <kbd>Tab</kbd>; <kbd>Enter</kbd> sends `kill -9`. Pass a different signal as the first arg (e.g. `fkill 15`).
-
-### `fbr` — checkout a git branch
-
-Local + remote branches with a `git log` preview of whichever is highlighted.
-
-<!-- TODO docs/fbr-widget.png — screenshot of fbr in a real repo with the log preview showing recent commits -->
-![fbr widget](docs/fbr-widget.png)
+Oh My Zsh trae también un montón de aliases extra mediante el plugin `git` — `gst`, `gco`, `gcam`, `gp`, etc. Corré `alias` en la consola para ver la lista completa.
 
 ---
 
-## Apps I install (Homebrew casks)
+## Mis funciones fzf
 
-| App | What it is |
+Cuatro pickers interactivos que me armé arriba de [`fzf`](https://github.com/junegunn/fzf), todos con el mismo estilo de border y preview. Código en [zsh/functions.zsh](zsh/functions.zsh).
+
+### `fd` — saltar a un directorio
+
+Hacés fuzzy search por cualquier subdirectorio del path actual y te tira el `cd` automágico. Preview en árbol del lado derecho.
+
+<!-- TODO docs/fd-widget.png — screenshot de `fd` corriendo con la lista de directorios a la izquierda y el preview de eza tree a la derecha -->
+![fd](docs/fd-widget.png)
+
+### `fh` — re-correr un comando del historial
+
+Buscás cualquier comando que hayas tipeado y lo volvés a correr. El preview te muestra el comando completo con highlighting.
+
+<!-- TODO docs/fh-widget.png — screenshot de `fh` con varios comandos del historial y uno seleccionado en el preview -->
+![fh](docs/fh-widget.png)
+
+### `fkill` — matar un proceso
+
+Multi-select con <kbd>Tab</kbd>; <kbd>Enter</kbd> manda `kill -9`. Si querés mandar otra señal, la pasás como argumento (ej: `fkill 15`).
+
+### `fbr` — checkout de una branch
+
+Branches locales y remotas, con preview del `git log` de la que tengas seleccionada.
+
+<!-- TODO docs/fbr-widget.png — screenshot de fbr corriendo en un repo real con el log de preview -->
+![fbr](docs/fbr-widget.png)
+
+---
+
+## Apps que tengo instaladas (Homebrew casks)
+
+| App | Qué es |
 |---|---|
-| [Brave](https://brave.com/) | Privacy-respecting browser, my daily driver |
-| [iTerm2](https://iterm2.com/) | Terminal replacement: split panes, in-line search, profiles, hotkey window |
-| [Raycast](https://www.raycast.com/) | Spotlight on steroids — clipboard history, calculator, snippets, custom scripts |
-| [Stats](https://github.com/exelban/stats) | CPU / RAM / disk / network / battery in the menu bar |
-| [Rectangle](https://rectangleapp.com/) | Window tiling via keyboard shortcuts (left/right halves, quarters, fullscreen, etc.). Trackpad-gesture alternative: [Swish](https://highlyopinionated.co/swish/) (paid). |
-| [Mos](https://mos.caldis.me/) | Smooth mouse-wheel scrolling, with independent scroll direction for mouse and trackpad |
-| [KeyClu](https://sergii.tatarenkov.name/keyclu/support/) | Pops up the current app's keyboard shortcuts when you hold a hotkey — great for learning shortcuts |
-| [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share for macOS — send & receive files from Android |
-| [scrcpy](https://github.com/Genymobile/scrcpy) | Mirror & control an Android device from your Mac, over USB or Wi-Fi |
+| [Brave](https://brave.com/) | Browser que respeta la privacidad. El que uso día a día. |
+| [iTerm2](https://iterm2.com/) | Reemplazo de Terminal: paneles divididos, search interno, profiles, hotkey window. |
+| [Raycast](https://www.raycast.com/) | Spotlight pero potenciado — clipboard history, calculadora, snippets, scripts custom. |
+| [Stats](https://github.com/exelban/stats) | CPU / RAM / disco / red / batería en la barra de menú. |
+| [Rectangle](https://rectangleapp.com/) | Tiling de ventanas con atajos de teclado (mitades, cuartos, pantalla completa, etc.). Alternativa con gestos de trackpad: [Swish](https://highlyopinionated.co/swish/) (pago). |
+| [Mos](https://mos.caldis.me/) | Suaviza el scroll de la rueda del mouse y te deja tener dirección de scroll independiente para mouse y trackpad. |
+| [KeyClu](https://sergii.tatarenkov.name/keyclu/support/) | Te muestra los atajos de teclado de la app activa cuando mantenés una hotkey — buenísimo para aprender shortcuts. |
+| [NearDrop](https://github.com/grishka/NearDrop) | Quick Share / Nearby Share para macOS — mandar y recibir archivos desde Android. |
+| [scrcpy](https://github.com/Genymobile/scrcpy) | Espejar y controlar un Android desde la Mac (USB o WiFi). |
 | [android-platform-tools](https://developer.android.com/tools/releases/platform-tools) | `adb`, `fastboot`, etc. |
 
-### What KeyClu looks like
+### Cómo se ve KeyClu
 
-Hold the hotkey in any app and you get a translucent overlay grouping every shortcut by menu — searchable and scrollable:
+Mantenés la hotkey en cualquier app y te aparece un overlay translúcido con todos los atajos agrupados por menú — buscable y con scroll:
 
-![KeyClu overlay](https://raw.githubusercontent.com/Anze/KeyCluCask/main/img/screenshot_2.png)
+![Overlay de KeyClu](https://raw.githubusercontent.com/Anze/KeyCluCask/main/img/screenshot_2.png)
 
-### What Stats looks like
+### Cómo se ve Stats
 
-The menu bar widgets stay live with CPU / RAM / disk / network / battery numbers and tiny graphs — pick which ones you want and how compact they should be:
+Los widgets de la barra de menú te muestran en vivo CPU / RAM / disco / red / batería con números y mini-gráficos — elegís cuáles querés ver y qué tan compactos los querés:
 
-![Stats menu bar widgets](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
+![Widgets de Stats en la barra de menú](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/menus%3Fv2.3.2.png?v1)
 
-Click any of them and you get a detailed popup with breakdowns, history, top processes, and per-component info:
+Si hacés click en cualquiera, te abre un popup con detalles, historial, top de procesos e info por componente:
 
-![Stats popups](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
+![Popups de Stats](https://serhiy.s3.eu-central-1.amazonaws.com/Github_repo/stats/popups%3Fv2.3.2.png?v3)
 
-### `scrcpy-select` — pick a device when several Androids are connected
+### `scrcpy-select` — elegir dispositivo cuando hay varios Android conectados
 
-Plain `scrcpy` errors out if more than one Android device is connected (e.g. a phone over USB plus an emulator, or two phones, or USB + ADB-over-Wi-Fi). This little wrapper lists every device returned by `adb devices -l` with its model name, lets you pick one by number, and launches scrcpy on it.
+`scrcpy` solo no anda si tenés más de un Android conectado (por ejemplo un celu por USB y un emulador corriendo, o dos celus, o USB + ADB por WiFi). Este wrapper te lista todos los dispositivos que devuelve `adb devices -l` con su modelo, le elegís uno por número, y te tira scrcpy sobre ese.
 
 ```sh
 $ scrcpy-select
@@ -179,15 +179,15 @@ Enter number: 1
 Launching scrcpy for SM-G991U [R5CN...]
 ```
 
-Source: [bin/scrcpy-select](bin/scrcpy-select). Symlinked into `~/bin` (which is on your PATH) by `install.sh`.
+Código en [bin/scrcpy-select](bin/scrcpy-select). `install.sh` lo symlinkea a `~/bin` (que ya está en el PATH).
 
 ---
 
-## Custom keyboard layout
+## Layout de teclado custom
 
-I use a custom layout called **"U.S. but Spanish too"**. It's a regular U.S. QWERTY layout, except that pressing <kbd>Option</kbd> + a vowel (or `n`) types the accented Spanish letter directly — no dead-key dance.
+Tengo un layout custom llamado **"U.S. but Spanish too"**. Es básicamente el QWERTY de USA, pero apretando <kbd>Option</kbd> + una vocal (o `n`) te tira la letra acentuada directo — sin tener que hacer la dance de dead-keys.
 
-| Combo | Output | Combo | Output |
+| Combo | Sale | Combo | Sale |
 |---|---|---|---|
 | <kbd>⌥</kbd>+<kbd>A</kbd> | á | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>A</kbd> | Á |
 | <kbd>⌥</kbd>+<kbd>E</kbd> | é | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>E</kbd> | É |
@@ -197,73 +197,73 @@ I use a custom layout called **"U.S. but Spanish too"**. It's a regular U.S. QWE
 | <kbd>⌥</kbd>+<kbd>N</kbd> | ñ | <kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>N</kbd> | Ñ |
 | <kbd>⌥</kbd>+<kbd>1</kbd> | ¡ | <kbd>⌥</kbd>+<kbd>/</kbd> | ¿ |
 
-The files live at [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` copies them automatically; if you want just the layout without running the installer:
+Los archivos están en [config/keyboard-layouts/](config/keyboard-layouts/). `install.sh` los copia automáticamente; si lo querés instalar a mano sin correr el installer:
 
-1. Copy `U.S. but Spanish too.keylayout` (and the matching `.icns` icon, optional) into `~/Library/Keyboard Layouts/`. Create the folder if it doesn't exist.
-2. Open **System Settings → Keyboard → Text Input → Input Sources → Edit → +**, scroll to **Others**, and pick "U.S. but Spanish too".
-3. Switch to it from the input-source menu in the menu bar (or with <kbd>Ctrl</kbd>+<kbd>Space</kbd>).
+1. Copiá `U.S. but Spanish too.keylayout` (y opcionalmente el `.icns` con el ícono) a `~/Library/Keyboard Layouts/`. Si la carpeta no existe, la creás.
+2. Abrí **Ajustes del Sistema → Teclado → Entrada de texto → Fuentes de entrada → Editar → +**, andá hasta **Otros** y elegí "U.S. but Spanish too".
+3. Cambiás al layout desde el menú de fuentes de entrada en la barra de menú (o con <kbd>Ctrl</kbd>+<kbd>Espacio</kbd>).
 
 ---
 
-## Dev tools running in the background
+## Herramientas de dev en background
 
-These mostly run as services or get invoked by other tools — I rarely think about them.
+Cosas que corren como servicios o las usan otras herramientas — casi nunca pienso en ellas.
 
-| Tool | What it gives me |
+| Herramienta | Para qué |
 |---|---|
-| [`nginx`](https://nginx.org/) | Local reverse proxy for HTTPS dev domains |
-| [`nvm`](https://github.com/nvm-sh/nvm) | Multiple Node.js versions side-by-side |
-| [`gnupg`](https://gnupg.org/) + [`pinentry-mac`](https://github.com/GPGTools/pinentry) | Sign git commits & tags with GPG |
-| [`mkcert`](https://github.com/FiloSottile/mkcert) | Trusted local TLS certificates with no browser warnings |
-| [`gh`](https://cli.github.com/) | GitHub from the command line |
-| [`fzf`](https://github.com/junegunn/fzf) | The fuzzy finder my custom widgets are built on |
-| [`thefuck`](https://github.com/nvbn/thefuck) | Auto-fix the previous mistyped command |
-| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
+| [`nginx`](https://nginx.org/) | Reverse proxy local para dominios HTTPS de dev |
+| [`nvm`](https://github.com/nvm-sh/nvm) | Múltiples versiones de Node al mismo tiempo |
+| [`gnupg`](https://gnupg.org/) + [`pinentry-mac`](https://github.com/GPGTools/pinentry) | Firmar commits y tags con GPG |
+| [`mkcert`](https://github.com/FiloSottile/mkcert) | Certificados TLS locales sin warnings en el browser |
+| [`gh`](https://cli.github.com/) | GitHub desde la consola |
+| [`fzf`](https://github.com/junegunn/fzf) | El fuzzy finder donde están armadas mis funciones |
+| [`thefuck`](https://github.com/nvbn/thefuck) | Te corrige el último comando mal escrito |
+| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | `cd` con memoria |
 
 ---
 
 ## VS Code
 
-`./install.sh` also installs ~100 VS Code extensions on a fresh machine, listed in [vscode-extensions.txt](vscode-extensions.txt). The major stacks:
+`./install.sh` también instala ~100 extensiones de VS Code en una Mac fresca, listadas en [vscode-extensions.txt](vscode-extensions.txt). Los stacks principales:
 
 - **Web/JS**: ESLint, Prettier, TailwindCSS, GitLens, Pretty TS Errors
 - **PHP/Laravel**: Intelephense, Blade Formatter, Laravel Goto-* helpers
 - **Flutter/Dart**: Dart, Flutter, bloc, awesome-flutter-snippets
 - **Python**: Pylance, Ruff, Jupyter
-- **AI**: GitHub Copilot Chat, Codeium, ChatGPT
+- **IA**: GitHub Copilot Chat, Codeium, ChatGPT
 - **DX**: Docker, EditorConfig, Material Icon Theme, Code Spell Checker
 
 ---
 
-## A note on fonts
+## Notita sobre fuentes
 
-Most of the icon-rendering above (in eza, the p10k prompt, etc.) requires a [Nerd Font](https://www.nerdfonts.com/font-downloads) to display correctly. I use **MesloLGS Nerd Font**; **Hack Nerd Font** also works well. Set it in iTerm2 → Profiles → Text → Font.
-
----
-
-## Can't decide which app to use?
-
-Don't know which calendar app to pick, which browser, which AI app, which backup tool, which clipboard-history app, which mail client? I'll leave you [this mega spreadsheet](https://docs.google.com/spreadsheets/d/1HtJN4oQ6oBDFmFaF4Qeq5vCGEU1g-KB1DEz5Sp_OwXo/edit?usp=sharing) that compares a bunch of macOS tools side by side, with pros and cons.
+Para que se vean bien los íconos de eza, del prompt p10k, etc., necesitás una [Nerd Font](https://www.nerdfonts.com/font-downloads). Yo uso **MesloLGS Nerd Font**; **Hack Nerd Font** también queda piola. Lo configurás en iTerm2 → Profiles → Text → Font.
 
 ---
 
-## Recommended but I haven't tried them yet
+## ¿No sabés qué app usar?
 
-Tools people have suggested to me — listed here so I (and you) don't forget:
-
-- **[FineTune](https://github.com/ronitsingh10/FineTune)** — per-app volume control, up to 4× boost on quiet apps, multi-output routing, EQ, headphone correction. Free, open source, lives in the menu bar. Possible replacement for what `Stats > volume` and the system mixer can't do.
-- **[AltTab](https://alt-tab-macos.netlify.app/)** — Windows-style alt-tab for macOS, with thumbnails of every window across spaces. Free.
-- **[BetterDisplay](https://github.com/waydabber/BetterDisplay)** (Pro version is paid) — tame external displays: arbitrary resolutions, HiDPI on non-Retina monitors, brightness/contrast/gamma overrides per display. Pairs well with **[MonitorControl](https://github.com/MonitorControl/MonitorControl)** (free, brightness & volume in the menu bar for external displays).
-- **[Alfred](https://www.alfredapp.com/)** — the OG Spotlight replacement, the alternative to Raycast. Free core; the Powerpack (workflows, clipboard history, snippets) is paid.
+¿No sabés qué app de calendario usar, qué navegador, qué app de IA, qué app de backup, qué app de clipboard history o cliente de mail? Te dejo [esta mega spreadsheet](https://docs.google.com/spreadsheets/d/1HtJN4oQ6oBDFmFaF4Qeq5vCGEU1g-KB1DEz5Sp_OwXo/edit?usp=sharing) que compara bastantes herramientas para macOS, con ventajas y desventajas.
 
 ---
 
-## Going deeper
+## Recomendados que todavía no probé
 
-Everything above is documented technically — installation, file structure, what's intentionally not committed (SSH keys, GPG private keys, `.zsh_history`), how to sync changes from your live config back into the repo — in [advanced-readme.md](advanced-readme.md).
+Herramientas que me chiflaron pero que aún no testeé — las dejo acá para que ni yo ni vos las olvidemos:
+
+- **[FineTune](https://github.com/ronitsingh10/FineTune)** — control de volumen por app independiente, boost hasta 4× para apps que suenan bajito, ruteo a varias salidas, EQ y corrección para auriculares. Free y open source, vive en la barra de menú. Posible reemplazo para lo que `Stats > volumen` y el mezclador del sistema no llegan a hacer.
+- **[AltTab](https://alt-tab-macos.netlify.app/)** — alt-tab estilo Windows para macOS, con thumbnails de cada ventana de todos los spaces. Free.
+- **[BetterDisplay](https://github.com/waydabber/BetterDisplay)** (la versión Pro es paga) — para domar monitores externos: resoluciones arbitrarias, HiDPI en monitores no-Retina, override de brillo/contraste/gamma por display. Hace buen combo con **[MonitorControl](https://github.com/MonitorControl/MonitorControl)** (free, brillo y volumen en la barra de menú para displays externos).
+- **[Alfred](https://www.alfredapp.com/)** — el Spotlight replacement original, la alternativa a Raycast. El core es gratis; el Powerpack (workflows, clipboard history, snippets) es pago.
 
 ---
 
-## Got recommendations or feedback?
+## Para los más limados
 
-If there's a tool you swear by that's missing from this list, or a section that's confusing, I'd love to hear it. Open an [issue on GitHub](https://github.com/uristrimber/dotfiles/issues) or reach out wherever you usually find me.
+Si querés clonar y darle, está todo el detalle técnico en [advanced-readme.md](advanced-readme.md): cómo funciona `install.sh`, qué *no* está commiteado (claves SSH, GPG, etc.), y cómo sincronizar cambios desde tu setup en vivo de vuelta al repo.
+
+---
+
+## ¿Tenés recomendaciones o comentarios?
+
+Si hay alguna herramienta que usás todo el tiempo y me falta acá, o alguna parte que no se entiende, me copa que me digas. Abrí un [issue en GitHub](https://github.com/uristrimber/dotfiles/issues) o escribime por donde habitualmente nos hablamos.

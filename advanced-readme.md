@@ -1,6 +1,6 @@
 # dotfiles — advanced
 
-> Looking for the friendly tour of what these tools actually do? See [README.md](README.md) (English) or [README.es.md](README.es.md) (español).
+> Looking for the friendly tour of what these tools actually do? See [README.md](README.md) (español) or [README.en.md](README.en.md) (English).
 
 Personal macOS setup: zsh + Oh My Zsh + Powerlevel10k, Homebrew, iTerm2, and a Brewfile that captures every formula, cask, and VS Code extension currently installed.
 
