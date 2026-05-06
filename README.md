@@ -257,6 +257,7 @@ Herramientas que me chiflaron pero que aún no testeé — las dejo acá para qu
 - **[AltTab](https://alt-tab-macos.netlify.app/)** — alt-tab estilo Windows para macOS, con thumbnails de cada ventana de todos los spaces. Free.
 - **[BetterDisplay](https://github.com/waydabber/BetterDisplay)** (la versión Pro es paga) — para domar monitores externos: resoluciones arbitrarias, HiDPI en monitores no-Retina, override de brillo/contraste/gamma por display. Hace buen combo con **[MonitorControl](https://github.com/MonitorControl/MonitorControl)** (free, brillo y volumen en la barra de menú para displays externos).
 - **[Alfred](https://www.alfredapp.com/)** — el Spotlight replacement original, la alternativa a Raycast. El core es gratis; el Powerpack (workflows, clipboard history, snippets) es pago.
+- **[Kitty](https://sw.kovidgoyal.net/kitty/)** y **[Ghostty](https://ghostty.org/)** — terminales con renderizado por GPU, mucho más potentes y rápidas que iTerm2. Kitty tiene años de historia y un sistema de plugins (kittens); Ghostty es nuevita (2024, hecha por Mitchell Hashimoto, el creador de Vagrant y Terraform), enfocada en performance y UX. Ambas son free y open source.
 
 ---
 
