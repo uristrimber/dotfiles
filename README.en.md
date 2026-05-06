@@ -6,6 +6,8 @@ A friendly tour of the tools, shell tweaks, and apps I rely on every day on macO
 
 > If you're a friend who's curious what I use: keep reading. If you want to actually replicate the setup, jump to [advanced-readme.md](advanced-readme.md).
 
+> 💎 **If you're shopping for apps beyond what I use**, don't miss the [macOS app comparison spreadsheet](#cant-decide-which-app-to-use) further down — calendars, browsers, AI tools, backup, clipboard history, mail clients, all with pros and cons. **It's a gem.**
+
 ---
 
 ## The shell

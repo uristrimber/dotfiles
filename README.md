@@ -6,6 +6,8 @@ Una guía amistosa de cómo tengo armada la Mac — qué herramientas uso, qué 
 
 > Si caíste acá porque te mostré algo y te llamó la atención: seguí leyendo. Si querés clonar y darle, andá directo a [advanced-readme.md](advanced-readme.md).
 
+> 💎 **Si te interesan apps más allá de mi setup**, no te pierdas el [comparador de apps para macOS](#no-sabés-qué-app-usar) que dejo más abajo — calendario, navegador, app de IA, backup, clipboard history, cliente de mail, todo con ventajas y desventajas. **Es una joya.**
+
 ---
 
 ## La consola
